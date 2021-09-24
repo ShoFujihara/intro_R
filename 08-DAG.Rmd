@@ -1,0 +1,58 @@
+# 有向非巡回グラフ（DAG） {#DAG}
+
+```{r}
+library(dagitty)
+library(lavaan)
+```
+
+
+```{r}
+g <- dagitty('dag{
+  x [pos="0,1"]
+  y [pos="1,1"]
+  x -> y
+ }')
+plot(g)
+```
+
+## Confounder
+
+```{r}
+g <- dagitty('dag{
+  x [pos="0,1"]
+  y [pos="1,1"]
+  z [pos="0.5,0"]
+  x -> y ; x <- z -> y
+  }')
+plot(g)
+```
+
+
+## Mediator
+
+
+```{r}
+g <- dagitty('dag{
+  x [pos="0,1"]
+  y [pos="1,1"]
+  z [pos="0.5,0"]
+  x -> y;
+  x -> z -> y
+  }')
+plot(g)
+```
+
+
+## Collidar
+
+```{r}
+g <- dagitty('dag{
+  x [pos="0,1"]
+  y [pos="1,1"]
+  z [pos="0.5,0"]
+  x -> y;
+  x -> z <- y
+  }')
+plot(g)
+```
+
