@@ -1,0 +1,43 @@
+--- 
+title: "R入門"
+author: "藤原翔"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+#output:
+#  bookdown::gitbook: default
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+---
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+
+
+```{r setup, echo=FALSE}
+library(knitr)
+opts_chunk$set(
+  echo = TRUE,
+  cache = TRUE,
+  prompt = FALSE,
+  tidy = FALSE,
+  comment = NA,
+  message = FALSE,
+  warning = FALSE,
+  include = FALSE
+)
+opts_knit$set(width = 100)
+```
+
+
+# はじめに
+
+本ページでは，Rによる社会調査データの整理と分析の方法を説明する．
+

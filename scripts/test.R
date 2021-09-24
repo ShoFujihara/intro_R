@@ -5,4 +5,4 @@ b <- 100:1
 
 d <- tibble(a,b)
 
-write_csv(d, "scripts/test.csv")
+write_csv(d, "data/test.csv")
