@@ -1,7 +1,7 @@
 --- 
 title: "R入門"
 author: "藤原翔"
-date: "2021-09-24"
+date: "2021-09-25"
 site: bookdown::bookdown_site
 #output:
 #  bookdown::gitbook: default
@@ -23,4 +23,18 @@ link-citations: yes
 # はじめに
 
 本ページでは，Rによる社会調査データの整理と分析の方法を説明する．
+Rのインストール方法などについては説明しない．
+
+
+## 内容（予定）
+- Rの基礎
+- データの読み込み
+- 変数の加工
+- ggplotによる図の作成
+- 1つの変数の分析
+- 2つの変数の分析
+- 多変量解析
+- 多重代入法
+- 重み付け
+
 
