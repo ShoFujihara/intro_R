@@ -1,3 +1,6 @@
 はじめに
 intro
 bookdowngitbook-default
+basic
+data
+変数の加工
