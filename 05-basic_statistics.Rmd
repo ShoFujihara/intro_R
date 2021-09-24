@@ -1,0 +1,14 @@
+# 基本的な統計 {#basicstatistics}
+
+
+```{r}
+library(tidyverse)
+d <- read_csv("data/example_1.csv")
+d
+```
+
+
+```{r}
+mean(d$c17_1hensa)
+```
+

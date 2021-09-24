@@ -1,0 +1,31 @@
+# データの視覚化 {#vizualization}
+
+
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+d <- read_csv("data/example_1.csv")
+d
+```
+
+
+
+## ggplotの基礎
+
+### 1変数の場合
+
+```{r}
+ggplot(d, mapping = aes(x = c17_1hensa))
+```
+
+```{r}
+ggplot(d, mapping = aes(x = c17_1hensa)) + 
+  geom_histogram()
+```
+
+
+### 2変数の場合
+
