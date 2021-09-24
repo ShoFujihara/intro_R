@@ -1,0 +1,50 @@
+# データの読み込み {#data}
+
+
+## csvデータの読み込み
+
+`read_csv()`を用いる．`read.csv`でも可能．
+
+```{r}
+library(tidyverse)
+d_csv <- read_csv("data/example_1.csv")
+d_csv
+```
+
+
+## xlsxデータの読み込み
+
+xlsxデータを読み込む．
+
+```{r}
+library(readxl)
+d_xlsx <- read_xlsx("data/example_1.xlsx")
+d_xlsx
+```
+
+
+
+
+## dtaデータの読み込み
+
+Stataで用いられている`dta`データを読み込むには`read_dta`を用いる．
+
+```{r}
+library(haven)
+d_dta <- read_dta("data/example_1.dta")
+d_dta
+```
+
+
+ラベルがあるがそれを除きたければ`zap_label`と`zap_labels`を用いる．
+個人的にはラベルは無いほうがよいと考えている（基本はコードブックなどで確認すべきこと）ので，削除する．
+
+```{r}
+d_dta <- d_dta %>% zap_label()
+d_dta <- d_dta %>% zap_labels()
+d_dta
+```
+
+
+
+
