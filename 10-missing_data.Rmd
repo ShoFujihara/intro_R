@@ -1,0 +1,600 @@
+# 欠損データの分析 {#missing}
+
+
+```{r setup, echo = FALSE}
+library(knitr)
+opts_chunk$set(
+  cache = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  include = TRUE
+)
+opts_knit$set(width = 100)
+```
+
+
+## Rはなぜややこしいのか
+
+Rを使っているとやや面倒なことに直面する．次のようなデータを考えてみる．
+
+```{r}
+x <- c(1,2,3,4,NA,6,7,8,9,10)
+```
+
+このデータについて平均値を求めたい．Rで平均値を求めるためには`mean()`を用いる．
+
+```{r}
+mean(x)
+```
+
+特にエラーや警告メッセージもなく答えは`NA`となる．
+そこで計算を行う前に，NAを取り除く(remove)という指定を`na.rm = TRUE`によって行う．
+すると今度は答えを出してくれる．しかしこの答えは何を意味しているのだろうか．
+
+```{r}
+mean(x, na.rm = TRUE)
+```
+
+
+## リストワイズ法
+
+分析に用いる変数について，対象者あるいは個体にひとつでも欠損値があれば，その対象者あるいは個体を除いて分析する．
+
+
+
+## 代入法
+
+欠損値に何らかの値を補い，欠損値のないデータを作成する方法がある．
+欠損値のないデータは完全データ（complete data）と呼ばれる．
+あるひとつの欠損値についてひとつの値を代入する方法を単一代入法と呼び，複数の値を代入する方法を多重代入法と呼ぶ．
+
+
+## 重み付け
+
+## 尤度解析法
+
+
+## Amelia II：欠損データ分析のためのプログラム
+
+
+
+
+## 実践
+
+
+```{r}
+library(haven)
+library(tidyverse)
+library(mice)
+library(miceadds)
+library(Amelia)
+library(estimatr)
+
+d <- read_dta("/Users/sf/Data/JLPSJ/intro_R_mi_1.dta")
+d <- zap_label(d)
+d <- zap_labels(d)
+d[1:20,]
+d <- d %>% 
+  mutate(gender = factor(c1_1),
+         rc2a = car::recode(c2a, "1=5;2=4;3=3;4=2;5=1;else=NA"),
+         rc2b = car::recode(c2b, "1=5;2=4;3=3;4=2;5=1;else=NA"),
+         rc2c = car::recode(c2c, "1=5;2=4;3=3;4=2;5=1;else=NA"),
+         rc2d = car::recode(c2d, "1=5;2=4;3=3;4=2;5=1;else=NA"),
+         rc2e = car::recode(c2e, "1=5;2=4;3=3;4=2;5=1;else=NA"),
+         grade = car::recode(c15a, "1=5;2=4;3=3;4=2;5=1;else=NA", as.factor = TRUE),
+         hensa = c17_1hensa
+         ) %>% 
+  select(id, gender, hensa, grade, contains("rc2"))
+```
+
+
+欠損値を含めたまま平均と標準偏差を求めると次のようになる．
+
+```{r}
+with(d,mean(hensa))
+with(d,sd(hensa))
+```
+
+欠損値のあるケースを削除し，平均と標準偏差を求めると次のようになる．
+
+```{r}
+with(d,mean(hensa, na.rm = TRUE))
+with(d,sd(hensa, na.rm = TRUE))
+```
+
+
+```{r}
+with(d, lm(hensa ~ gender + grade)) %>%
+  summary()
+```
+
+
+
+データを選択する．ここでは性別と進学目標高校の偏差値としている．
+
+```{r}
+d1 <- d %>% select(gender,hensa,grade)
+d1
+```
+
+`mice()`による多重代入法．
+
+```{r}
+set.seed(123456)
+imp_mice_d1 <- mice(d1, m = 5)
+imp_mice_d1
+```
+
+
+
+
+```{r}
+imp_mice_d1 %>%
+  complete("all") %>%
+  map(~mean(.$hensa)) %>% 
+  bind_rows() %>%
+  pivot_longer(-0, names_to = "imp", values_to = "mean")
+```
+
+
+```{r}
+densityplot(imp_mice_d1)
+```
+
+多重代入法の結果を`pool()`によって統合する．
+
+
+```{r}
+with(imp_mice_d1, lm(hensa ~ 1)) %>%
+  pool()
+```
+
+
+
+
+- `ubar`：$1/M \sum^M_{l=1} \bar U _l$．ここで$\bar U
+_l$は$l$番目の代入で得られる$\hat Q_l$の分散共分散行列．
+- `b`：$1/M\sum^M_{l=1}(\hat Q_l - \bar Q)(\hat Q_l - \bar Q)^\prime$
+- `t`：total variance $T = \bar $
+- `dfcom`：完全データセットにおける自由度．観察数-パラメタ数．
+- `df`：Residual degrees of freedom for hypothesis testing．BarnardーRubinの修正を行った自由$^nu$
+- `riv`：relative increase in variance $r$
+- `lambda`：Proportion of total variance due to missingness lambda
+- `fmi`：Fraction of missing information 
+
+
+
+## ameliaによる多重代入
+
+```{r}
+set.seed(123456)
+imp_amelia_d1 <- amelia(data.frame(d1), m = 5,
+       noms = "gender",
+       ords = "grade")
+imp_amelia_d1
+```
+
+
+
+```{r}
+overimpute(imp_amelia_d1, var = 2)
+```
+
+```{r}
+disperse(imp_amelia_d1, dims = 1, m = 100)
+```
+
+ameliaで多重代入を行ったデータをmidsに変換する方法
+
+```{r}
+imp_amelia_d1_mids <- 
+  imp_amelia_d1$imputations %>%   # ameliaのオブジェクトからリストを作成
+  datlist2mids()   # リストをmidsに変換
+```
+
+
+```{r}
+densityplot(imp_amelia_d1_mids)
+```
+
+```{r}
+imp_amelia_d1_mids %>%
+  complete("all") %>%
+  map(~mean(.$hensa)) %>%
+  bind_rows() %>%
+  pivot_longer(-0, names_to = "imp", values_to = "mean")
+```
+
+
+```{r}
+with(imp_amelia_d1_mids, lm(hensa ~ 1)) %>%
+  pool()
+```
+
+
+```{r}
+with(imp_amelia_d1_mids, lm(hensa ~ gender + grade)) %>%
+  pool()
+```
+
+
+## 補助変数
+
+
+
+```{r}
+d2 <- d %>% select(gender,hensa,grade, contains("rc2"))
+d2
+```
+
+`mice()`による多重代入法．
+
+```{r}
+set.seed(123456)
+imp_mice_d2 <- mice(d2, m = 5)
+imp_mice_d2
+```
+
+```{r}
+imp_mice_d2 %>%
+  complete("all") %>%
+  map(~mean(.$hensa)) %>%
+  bind_rows() %>%
+  pivot_longer(-0, names_to = "imp", values_to = "mean")
+```
+
+
+```{r}
+densityplot(imp_mice_d2)
+```
+
+多重代入法の結果を`pool()`によって統合する．
+
+
+```{r}
+with(imp_mice_d2, lm(hensa ~ 1)) %>%
+  pool()
+```
+
+
+
+```{r}
+set.seed(123456)
+imp_amelia_d2 <- amelia(data.frame(d2), m = 5,
+       noms = "gender",
+       ords = "grade")
+imp_amelia_d2
+```
+
+
+
+```{r}
+overimpute(imp_amelia_d2, var = 2)
+```
+
+```{r}
+disperse(imp_amelia_d2, dims = 1, m = 100)
+```
+
+ameliaで多重代入を行ったデータをmidsに変換する方法
+
+```{r}
+imp_amelia_d2_mids <- 
+  imp_amelia_d2$imputations %>%   # ameliaのオブジェクトからリストを作成
+  datlist2mids()   # リストをmidsに変換
+```
+
+
+```{r}
+densityplot(imp_amelia_d2_mids)
+```
+
+```{r}
+imp_amelia_d2_mids %>%
+  complete("all") %>%
+  map(~mean(.$hensa)) %>%
+  bind_rows() %>%
+  pivot_longer(-0, names_to = "imp", values_to = "mean")
+```
+
+
+## 平均値と信頼区間を求める
+
+```{r}
+fit <- with(imp_amelia_d2_mids, lm(hensa ~ 1))
+fit
+fit %>%
+  pool() %>% 
+  tidy(conf.int = TRUE) %>% 
+  tibble()
+```
+
+
+他にも`MKmisc`パッケージの`mi.t.test()`を用いることもできる．
+
+```{r}
+library(MKmisc)
+mi.t.test(imp_amelia_d2$imputations, x = "hensa", mu = 0)
+```
+
+
+```{r}
+with(imp_amelia_d2_mids, lm(hensa ~ gender + grade)) %>%
+  pool()
+```
+
+
+```{r}
+fit_listwise <- with(d, lm_robust(hensa ~ gender + grade)) %>%
+  tidy(conf.int = TRUE)
+fit_mi <- with(imp_amelia_d1_mids, lm_robust(hensa ~ gender + grade)) %>%
+  pool() %>% 
+  tidy(conf.int = TRUE) %>%
+  select(1:7) %>%
+  tibble()
+fit_mi_aux <- with(imp_amelia_d2_mids, lm_robust(hensa ~ gender + grade)) %>%
+  pool() %>% 
+  tidy(conf.int = TRUE) %>%
+  select(1:7) %>%
+  tibble()
+bind_rows(fit_listwise,fit_mi,fit_mi_aux, .id = "method") %>% 
+  filter(term != "(Intercept)") %>% 
+  ggplot(aes(x = term, y = estimate, ymin = conf.low, ymax = conf.high,
+             group = method, color = method, shape = method)) + 
+  geom_pointrange(position = position_dodge(width = 0.3)) + 
+  theme_minimal()
+```
+
+
+## 結果の統合
+
+- Barnard and Rubin (1999)
+
+$${\bar \theta} = \frac{1}{M}\sum^M_{m = 1} {\hat \theta}_m$$
+
+- 代入内分散の平均
+
+$${\bar W} = \frac{1}{M}\sum^M_{m = 1} {\hat V}_m$$ 
+
+ここで${\hat V}_m = Var({\hat \theta}_m)$である．分散の平均である．
+
+- 代入間分散の平均
+$${B} = \frac{1}{M - 1}\sum^M_{m = 1} ({\hat \theta}_m - {\bar \theta})^2$$ 
+
+- ${\bar \theta}$の分散
+
+$$T = {\bar W} + \big(1 + \frac{1}{M}\big) B$$
+
+
+$$\nu_{\rm old} =  (M - 1) / {\hat \gamma}^2$$
+
+            
+ここで${\hat \gamma} = \big(1 + \frac{1}{M}\big) * B / T$である．${\hat \gamma} = \lambda$とされることもある [@vanbuuren2018]．
+
+
+
+調整済み自由度を${\tilde \nu}$とする．
+
+完全データの自由度を$\nu_{\rm com}$とする．
+
+$${\hat \nu}_{\rm obs} = \frac{\nu_{\rm com} + 1}{\nu_{\rm com} + 3} \nu_{\rm com} (1 - {\hat \gamma})$$
+
+$${\tilde \nu} = \frac{\nu_{\rm obs}\nu_{\rm old}}{\nu_{\rm old} + \nu_{\rm obs}}=\big(\frac{1}{\nu} + \frac{1}{{\hat \nu}_{\rm obs}} \big)^{-1}$$
+
+
+
+
+全体のばらつきに対する欠測データに起因するばらつき（分散）の比率．$\lambda$が大きければ，欠測データに起因するばらつきの影響が大きい．
+
+$$\lambda = \frac{B + B/M}{T}$$
+
+
+自由度$\nu$は
+
+$$\nu = \left(\frac{1}{\nu_1} + \frac{1}{\nu_2} \right) = \frac{\nu_1\nu_2}{\nu_1 + \nu_2}$$
+$$\nu_1 = \frac{M-1}{\lambda^2}$$
+
+$$\nu_2 = \frac{n-k+1}{n-k+3} (n-k)(1-\lambda)$$
+
+
+
+
+
+また，分散の相対的な増加$r$は次のようになる．
+
+$$r = \frac{\lambda}{1-\lambda}$$
+
+$$\gamma = \frac{r+2/(\nu+3)}{1+r}$$
+
+
+
+
+
+
+```{r}
+imp2 <- mice(d2, m = 8)
+imp2
+imp2 %>%
+  complete("all") %>%
+  map(~mean(.$hensa)) %>%
+  bind_rows() %>%
+  pivot_longer(-0, names_to = "imp", values_to = "mean")
+```
+
+```{r}
+with(imp_mice_d2, lm(hensa ~ gender)) %>%
+  pool() %>% 
+  summary()
+```
+
+
+
+```{r}
+imp_mice_d2 %>%
+  complete("all") %>%
+  map(~lm(hensa ~ gender, data = .)) %>%
+  pool()
+```
+
+
+```{r}
+with(imp_mice_d2, lm_robust(hensa ~ gender)) %>%
+  pool() %>%
+  summary()
+```
+
+
+
+
+
+
+
+作成されたデータは多重代入データセット（Multiply imputed data set (mids)）というオブジェクトとなる．
+
+```{r}
+imp_mice_d2
+plot(imp_mice_d2)
+```
+
+
+
+
+```{r}
+imp_mice_d2$imp$hensa
+```
+
+
+代入されたデータセットをリストで表示
+
+```{r}
+complete(imp_mice_d2, action = "all")
+```
+
+
+
+```{r}
+with(d, mean(hensa, na.rm = TRUE))
+with(d, sum(!is.na(hensa)))
+```
+
+
+```{r}
+with(imp_mice_d2,mean(hensa))
+with(imp_mice_d2,sum(!is.na(hensa)))
+```
+
+
+```{r}
+complete(imp_mice_d2, action = "all") %>%
+  map(~mean(.$hensa))
+```
+
+
+代入されたデータセットをロング形式で一つのデータとして表示．
+
+
+```{r}
+complete(imp_mice_d2, action = "long")
+```
+
+
+```{r}
+complete(imp_mice_d2, action = "long") %>%
+  group_by(.imp) %>% 
+  summarise(mean(hensa))
+```
+
+
+
+
+[@king2001]
+
+
+
+
+```{r}
+library(tictoc)
+tic()
+imp_mice_d2 <- mice(d2, m = 5)
+toc()
+
+tic()
+imp_amelia_d2 <- amelia(data.frame(d2), m = 5,
+       noms = "gender",
+       ords = "grade")
+toc()
+```
+
+
+
+
+
+## 補助変数
+
+
+
+
+
+## 2値変数が従属変数の場合
+
+
+```{r}
+d3 <- d %>% 
+  mutate(top_hs = ifelse(hensa >= 60 & !is.na(hensa), 1, 0)) %>% 
+  select(top_hs, gender, grade, contains("rc2"))
+```
+
+```{r}
+imp_amelia_d3 <- amelia(data.frame(d3),
+                        noms = c("gender","top_hs"),
+                        ords = "grade")
+```
+
+```{r}
+imp_amelia_d3_mids <- 
+  imp_amelia_d3$imputations %>%   # ameliaのオブジェクトからリストを作成
+  datlist2mids()   # リストをmidsに変換
+```
+
+
+```{r}
+fit_glm <- with(imp_amelia_d3_mids, glm(top_hs ~ gender + grade, family = binomial))
+pool(fit_glm) %>% 
+  tidy(conf.int = TRUE)
+
+library(ggeffects)
+
+imp_amelia_d3$imputations %>% 
+  map(~glm(top_hs ~ gender + grade, data= ., family = binomial)) %>% 
+  pool() %>% 
+  tidy(conf.int = TRUE)
+
+
+imp_pred <- imp_amelia_d3$imputations %>% 
+  map(~glm(top_hs ~ gender + grade, data= ., family = binomial) %>%
+        ggpredict(terms = "grade [1:5]"))
+imp_pred %>% 
+  pool_predictions() %>% 
+  tibble()
+
+
+bind_rows(imp_pred, .id = "imp") %>% 
+  tibble() %>% 
+  ggplot(aes(x = x, y = predicted, ymin = conf.low, ymax = conf.high, group = 1)) + 
+  geom_point(alpha = 0.1) + 
+  geom_line(size = 0.1) + 
+  geom_ribbon(alpha = 0.2) + 
+  theme_minimal()
+```
+
+
+## メッセージ
+
+- 欠損値に対してなにか自動的に処理を行うということは避けるべきである．
+- 社会調査はサンブルの代表性や偏りに対して大きな関心を持っているが，欠損値の処理についてはあまり積極的ではない．問題点を指摘するだけではなく，それへの積極的な対応が必要とされる [@takahashiwatanabe2017]．
+- もちろん機械的に多重代入の方法を適用することも同時に避けるべきである．どのように欠損が生じているか，それは質問の特徴の影響を受けているのか，それとも調査対象者の特徴の影響を受けているのか，あるいは両方なのかを考えることも，社会調査の一つの重要な課題である．
+
+
+
+
+

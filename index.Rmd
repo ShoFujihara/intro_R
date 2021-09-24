@@ -6,7 +6,7 @@ site: bookdown::bookdown_site
 #output:
 #  bookdown::gitbook: default
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography: "/Users/sf/Dropbox/Zjournal/My Library.bib"
 biblio-style: apalike
 link-citations: yes
 ---
