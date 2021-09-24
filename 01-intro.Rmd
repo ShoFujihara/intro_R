@@ -1,0 +1,23 @@
+# 使用するデータ {#intro}
+
+
+
+```{r}
+x <- 1:10
+y <- letters[1:10]
+```
+
+
+```{r}
+df <- data.frame(x,y)
+df
+```
+
+
+```{r}
+library(tidyverse)
+df_tbl <- tibble(df)
+df_tbl
+```
+
+
