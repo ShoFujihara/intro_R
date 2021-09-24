@@ -27,3 +27,16 @@ xlsxデータの読み込み
 dtaデータの読み込み
 install
 function
+basicstatistics
+vizualization
+ggplotの基礎
+変数の場合
+変数の場合-1
+数値のベクトル
+文字列のベクトル
+オブジェクト
+関数
+データフレイム
+データフレイム-1
+tibble形式のデータフレイム
+ヘルプ
