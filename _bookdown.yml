@@ -1,6 +1,6 @@
-book_filename: "intro_R"
-delete_merged_file: true
+book_filename: "R入門"
 language:
   ui:
-    chapter_name: "Chapter "
+    chapter_name: ""
+new_session: true
 output_dir: docs

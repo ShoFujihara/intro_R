@@ -12,13 +12,15 @@ link-citations: yes
 ---
 
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
+```{r eval=FALSE, echo=FALSE}
+install.packages("bookdown")
 ```
 
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'),
+                 'packages.bib')
+```
 
 
 ```{r setup, echo=FALSE}
