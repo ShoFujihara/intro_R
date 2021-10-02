@@ -24,7 +24,7 @@
 <meta name="author" content="藤原翔" />
 
 
-<meta name="date" content="2021-10-02" />
+<meta name="date" content="2021-10-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -196,11 +196,11 @@ div.csl-indent {
 <li class="chapter" data-level="3.7.1" data-path="basic.html"><a href="basic.html#データフレイム-1"><i class="fa fa-check"></i><b>3.7.1</b> データフレイム</a></li>
 <li class="chapter" data-level="3.7.2" data-path="basic.html"><a href="basic.html#tibble形式のデータフレイム"><i class="fa fa-check"></i><b>3.7.2</b> tibble形式のデータフレイム</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="basic.html"><a href="basic.html#ヘルプを活用する"><i class="fa fa-check"></i><b>3.8</b> ヘルプを活用する</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="function.html"><a href="function.html"><i class="fa fa-check"></i><b>4</b> 関数</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="function.html"><a href="function.html#ヘルプ"><i class="fa fa-check"></i><b>4.1</b> ヘルプ</a></li>
+<li class="chapter" data-level="4.2" data-path="function.html"><a href="function.html#わからないことがあったら"><i class="fa fa-check"></i><b>4.2</b> わからないことがあったら</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>5</b> データの読み込み</a>
 <ul>
@@ -270,16 +270,184 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="regression" class="section level1" number="8">
 <h1><span class="header-section-number">8</span> 回帰分析</h1>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="regression.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## ─ Attaching packages ──────────────────── tidyverse 1.3.1 ─</code></pre>
-<pre><code>## ✓ tibble  3.1.4     ✓ dplyr   1.0.7
-## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
-## ✓ readr   2.0.1     ✓ forcats 0.5.1
-## ✓ purrr   0.3.4</code></pre>
-<pre><code>## ─ Conflicts ───────────────────── tidyverse_conflicts() ─
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="regression.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(estimatr)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="regression.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb172-2"><a href="regression.html#cb172-2" aria-hidden="true" tabindex="-1"></a>d_csv <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/example_7.csv&quot;</span>)</span>
+<span id="cb172-3"><a href="regression.html#cb172-3" aria-hidden="true" tabindex="-1"></a>d_csv</span></code></pre></div>
+<pre><code>## # A tibble: 1,854 × 6
+##       id  c1_1  c15a   c19 m25m_b m25f_b
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+##  1     1     2     3     2      3      4
+##  2     2     2     5     6      4      4
+##  3     3     2     2     6      7      7
+##  4     4     1     3     3      3      6
+##  5     5     2     1     6      5      4
+##  6     6     2     1     6      7      7
+##  7     7     2     1     6      7      7
+##  8     8     1     5     2      6      1
+##  9     9     1     3     7      3      5
+## 10    10     1     4     6      4      3
+## # … with 1,844 more rows</code></pre>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="regression.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb174-2"><a href="regression.html#cb174-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d_csv <span class="sc">%&gt;%</span></span>
+<span id="cb174-3"><a href="regression.html#cb174-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gender =</span> <span class="fu">factor</span>(c1_1, </span>
+<span id="cb174-4"><a href="regression.html#cb174-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,</span>
+<span id="cb174-5"><a href="regression.html#cb174-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Men&quot;</span>,<span class="st">&quot;Women&quot;</span>)),</span>
+<span id="cb174-6"><a href="regression.html#cb174-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">grade =</span> <span class="dv">5</span> <span class="sc">-</span> c15a,</span>
+<span id="cb174-7"><a href="regression.html#cb174-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">asp =</span> car<span class="sc">::</span><span class="fu">recode</span>(c19, <span class="st">&quot;1=9;2=12;3:5=14;6=16;7=18;else=NA&quot;</span>),</span>
+<span id="cb174-8"><a href="regression.html#cb174-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">medu =</span> car<span class="sc">::</span><span class="fu">recode</span>(m25m_b, <span class="st">&quot;1:3=1;4:6=2;7:8=3;else=NA&quot;</span>),</span>
+<span id="cb174-9"><a href="regression.html#cb174-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">medu =</span> <span class="fu">factor</span>(medu, </span>
+<span id="cb174-10"><a href="regression.html#cb174-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, </span>
+<span id="cb174-11"><a href="regression.html#cb174-11" aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;JH/HS&quot;</span>,<span class="st">&quot;JC/PTC&quot;</span>,<span class="st">&quot;Univ&quot;</span>)),</span>
+<span id="cb174-12"><a href="regression.html#cb174-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">fedu =</span> car<span class="sc">::</span><span class="fu">recode</span>(m25f_b, <span class="st">&quot;1:3=1;4:6=2;7:8=3;else=NA&quot;</span>),</span>
+<span id="cb174-13"><a href="regression.html#cb174-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">fedu =</span> <span class="fu">factor</span>(fedu, </span>
+<span id="cb174-14"><a href="regression.html#cb174-14" aria-hidden="true" tabindex="-1"></a>                       <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, </span>
+<span id="cb174-15"><a href="regression.html#cb174-15" aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;JH/HS&quot;</span>,<span class="st">&quot;JC/PTC&quot;</span>,<span class="st">&quot;Univ&quot;</span>)),</span>
+<span id="cb174-16"><a href="regression.html#cb174-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb174-17"><a href="regression.html#cb174-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, gender, grade, asp, medu, fedu)</span>
+<span id="cb174-18"><a href="regression.html#cb174-18" aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div>
+<pre><code>## # A tibble: 1,854 × 6
+##       id gender grade   asp medu   fedu  
+##    &lt;dbl&gt; &lt;fct&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt; 
+##  1     1 Women      2    12 JH/HS  JC/PTC
+##  2     2 Women      0    16 JC/PTC JC/PTC
+##  3     3 Women      3    16 Univ   Univ  
+##  4     4 Men        2    14 JH/HS  JC/PTC
+##  5     5 Women      4    16 JC/PTC JC/PTC
+##  6     6 Women      4    16 Univ   Univ  
+##  7     7 Women      4    16 Univ   Univ  
+##  8     8 Men        0    12 JC/PTC JH/HS 
+##  9     9 Men        2    18 JH/HS  JC/PTC
+## 10    10 Men        1    16 JC/PTC JH/HS 
+## # … with 1,844 more rows</code></pre>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="regression.html#cb176-1" aria-hidden="true" tabindex="-1"></a>fit_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(asp <span class="sc">~</span> grade, <span class="at">data =</span> d)</span>
+<span id="cb176-2"><a href="regression.html#cb176-2" aria-hidden="true" tabindex="-1"></a>fit_1</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = asp ~ grade, data = d)
+## 
+## Coefficients:
+## (Intercept)        grade  
+##     13.7511       0.5791</code></pre>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="regression.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = asp ~ grade, data = d)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -7.0675 -0.9093  0.2489  1.0907  4.2489 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 13.75111    0.07608   180.7   &lt;2e-16 ***
+## grade        0.57908    0.02811    20.6   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.424 on 1703 degrees of freedom
+##   ( 149 個の観測値が欠損のため削除されました )
+## Multiple R-squared:  0.1995, Adjusted R-squared:  0.1991 
+## F-statistic: 424.5 on 1 and 1703 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="regression.html#cb180-1" aria-hidden="true" tabindex="-1"></a>fit_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(asp <span class="sc">~</span> grade <span class="sc">+</span> gender, <span class="at">data =</span> d)</span>
+<span id="cb180-2"><a href="regression.html#cb180-2" aria-hidden="true" tabindex="-1"></a>fit_2</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = asp ~ grade + gender, data = d)
+## 
+## Coefficients:
+## (Intercept)        grade  genderWomen  
+##    13.79135      0.57930     -0.07985</code></pre>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="regression.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_2)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = asp ~ grade + gender, data = d)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -7.1085 -0.8701  0.2885  1.0501  4.2087 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 13.79135    0.08363 164.906   &lt;2e-16 ***
+## grade        0.57930    0.02810  20.612   &lt;2e-16 ***
+## genderWomen -0.07985    0.06896  -1.158    0.247    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.423 on 1702 degrees of freedom
+##   ( 149 個の観測値が欠損のため削除されました )
+## Multiple R-squared:  0.2002, Adjusted R-squared:  0.1992 
+## F-statistic:   213 on 2 and 1702 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="regression.html#cb184-1" aria-hidden="true" tabindex="-1"></a>fit_3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(asp <span class="sc">~</span> grade <span class="sc">+</span> gender <span class="sc">+</span> medu <span class="sc">+</span> fedu, <span class="at">data =</span> d)</span>
+<span id="cb184-2"><a href="regression.html#cb184-2" aria-hidden="true" tabindex="-1"></a>fit_3</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = asp ~ grade + gender + medu + fedu, data = d)
+## 
+## Coefficients:
+## (Intercept)        grade  genderWomen   meduJC/PTC     meduUniv   feduJC/PTC  
+##    13.43958      0.47091     -0.07259      0.51902      0.74786      0.10193  
+##    feduUniv  
+##     0.52770</code></pre>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="regression.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_3)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = asp ~ grade + gender + medu + fedu, data = d)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -6.3232 -0.5988  0.1491  0.9977  4.1621 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 13.43958    0.09077 148.068  &lt; 2e-16 ***
+## grade        0.47091    0.02845  16.554  &lt; 2e-16 ***
+## genderWomen -0.07259    0.06681  -1.087    0.277    
+## meduJC/PTC   0.51902    0.07633   6.799 1.47e-11 ***
+## meduUniv     0.74786    0.11000   6.799 1.47e-11 ***
+## feduJC/PTC   0.10193    0.10081   1.011    0.312    
+## feduUniv     0.52770    0.08054   6.552 7.59e-11 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.353 on 1641 degrees of freedom
+##   ( 206 個の観測値が欠損のため削除されました )
+## Multiple R-squared:  0.2681, Adjusted R-squared:  0.2654 
+## F-statistic: 100.2 on 6 and 1641 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="regression.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
+<span id="cb188-2"><a href="regression.html#cb188-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(fit_1, fit_2, fit_3, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>,</span>
+<span id="cb188-3"><a href="regression.html#cb188-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">no.space =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+## =================================================================================================
+##                                                  Dependent variable:                             
+##                     -----------------------------------------------------------------------------
+##                                                          asp                                     
+##                                (1)                       (2)                       (3)           
+## -------------------------------------------------------------------------------------------------
+## grade                       0.579***                  0.579***                  0.471***         
+##                              (0.028)                   (0.028)                   (0.028)         
+## genderWomen                                            -0.080                    -0.073          
+##                                                        (0.069)                   (0.067)         
+## meduJC/PTC                                                                      0.519***         
+##                                                                                  (0.076)         
+## meduUniv                                                                        0.748***         
+##                                                                                  (0.110)         
+## feduJC/PTC                                                                        0.102          
+##                                                                                  (0.101)         
+## feduUniv                                                                        0.528***         
+##                                                                                  (0.081)         
+## Constant                    13.751***                 13.791***                 13.440***        
+##                              (0.076)                   (0.084)                   (0.091)         
+## -------------------------------------------------------------------------------------------------
+## Observations                  1,705                     1,705                     1,648          
+## R2                            0.200                     0.200                     0.268          
+## Adjusted R2                   0.199                     0.199                     0.265          
+## Residual Std. Error     1.424 (df = 1703)         1.423 (df = 1702)         1.353 (df = 1641)    
+## F Statistic         424.491*** (df = 1; 1703) 212.958*** (df = 2; 1702) 100.182*** (df = 6; 1641)
+## =================================================================================================
+## Note:                                                                 *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<p>サンプルサイズが揃っていない．</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="regression.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(estimatr)</span></code></pre></div>
 
 </div>
             </section>

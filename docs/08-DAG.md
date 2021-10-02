@@ -22,7 +22,7 @@ g <- dagitty('dag{
 plot(g)
 ```
 
-![](08-DAG_files/figure-epub3/unnamed-chunk-2-1.png)<!-- -->
+<img src="08-DAG_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 
 ## Confounder
 
@@ -37,7 +37,7 @@ g <- dagitty('dag{
 plot(g)
 ```
 
-![](08-DAG_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
+<img src="08-DAG_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
 
 ## Mediator
@@ -55,7 +55,7 @@ g <- dagitty('dag{
 plot(g)
 ```
 
-![](08-DAG_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->
+<img src="08-DAG_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 
 ## Collidar
@@ -72,5 +72,5 @@ g <- dagitty('dag{
 plot(g)
 ```
 
-![](08-DAG_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
+<img src="08-DAG_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 

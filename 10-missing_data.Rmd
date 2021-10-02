@@ -379,7 +379,7 @@ $$\nu_{\rm old} =  (M - 1) / {\hat \gamma}^2$$
 
 $${\hat \nu}_{\rm obs} = \frac{\nu_{\rm com} + 1}{\nu_{\rm com} + 3} \nu_{\rm com} (1 - {\hat \gamma})$$
 
-$${\tilde \nu} = \frac{\nu_{\rm obs}\nu_{\rm old}}{\nu_{\rm old} + \nu_{\rm obs}}=\big(\frac{1}{\nu} + \frac{1}{{\hat \nu}_{\rm obs}} \big)^{-1}$$
+$${\tilde \nu} = \frac{\nu_{\rm obs}\nu_{\rm old}}{\nu_{\rm old} + \nu_{\rm obs}}=\big(\frac{1}{\nu} + \frac{1}{\hat \nu_{\rm obs}} \big)^{-1}$$
 
 
 
