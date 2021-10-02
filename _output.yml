@@ -3,7 +3,7 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">R入門</a></li>
+        <li><a href="./">社会調査のためのR入門</a></li>
       after: |
         <li></li>
     download: ["pdf", "epub"]
@@ -14,3 +14,5 @@ bookdown::pdf_book:
   latex_engine: lualatex
   citation_package: natbib
   keep_tex: yes
+
+    

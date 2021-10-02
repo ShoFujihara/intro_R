@@ -1,5 +1,17 @@
 # 媒介分析 {#mediation}
 
+```{r setup, echo = FALSE}
+library(knitr)
+opts_chunk$set(
+  cache = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  include = TRUE
+)
+opts_knit$set(width = 100)
+```
+
+
 ```{r}
 library(dagitty)
 library(lavaan)

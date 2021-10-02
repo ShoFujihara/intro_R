@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Rの基礎 | R入門</title>
-  <meta name="description" content="3 Rの基礎 | R入門" />
+  <title>3 Rの基礎 | 社会調査のためのR入門</title>
+  <meta name="description" content="3 Rの基礎 | 社会調査のためのR入門" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Rの基礎 | R入門" />
+  <meta property="og:title" content="3 Rの基礎 | 社会調査のためのR入門" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Rの基礎 | R入門" />
+  <meta name="twitter:title" content="3 Rの基礎 | 社会調査のためのR入門" />
   
   
   
@@ -24,15 +24,15 @@
 <meta name="author" content="藤原翔" />
 
 
-<meta name="date" content="2021-09-25" />
+<meta name="date" content="2021-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="rとrstudioのインストール.html"/>
-<link rel="next" href="data.html"/>
+<link rel="prev" href="install.html"/>
+<link rel="next" href="function.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -120,6 +120,28 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -134,40 +156,98 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">R入門</a></li>
+<li><a href="./">社会調査のためのR入門</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> bookdown::gitbook: default</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> はじめに</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#内容予定"><i class="fa fa-check"></i><b>1.1</b> 内容（予定）</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html"><i class="fa fa-check"></i><b>2</b> RとRStudioのインストール</a>
+<li class="chapter" data-level="2" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>2</b> RとRStudioのインストール</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#rのインストール"><i class="fa fa-check"></i><b>2.1</b> Rのインストール</a>
+<li class="chapter" data-level="2.1" data-path="install.html"><a href="install.html#rのインストール"><i class="fa fa-check"></i><b>2.1</b> Rのインストール</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#ダウンロード"><i class="fa fa-check"></i><b>2.1.1</b> ダウンロード</a></li>
-<li class="chapter" data-level="2.1.2" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#mac"><i class="fa fa-check"></i><b>2.1.2</b> MAC</a></li>
-<li class="chapter" data-level="2.1.3" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#windows"><i class="fa fa-check"></i><b>2.1.3</b> Windows</a></li>
-<li class="chapter" data-level="2.1.4" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#rの起動"><i class="fa fa-check"></i><b>2.1.4</b> Rの起動</a></li>
-<li class="chapter" data-level="2.1.5" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#rのテスト"><i class="fa fa-check"></i><b>2.1.5</b> Rのテスト</a></li>
+<li class="chapter" data-level="2.1.1" data-path="install.html"><a href="install.html#ダウンロード"><i class="fa fa-check"></i><b>2.1.1</b> ダウンロード</a></li>
+<li class="chapter" data-level="2.1.2" data-path="install.html"><a href="install.html#mac"><i class="fa fa-check"></i><b>2.1.2</b> MAC</a></li>
+<li class="chapter" data-level="2.1.3" data-path="install.html"><a href="install.html#windows"><i class="fa fa-check"></i><b>2.1.3</b> Windows</a></li>
+<li class="chapter" data-level="2.1.4" data-path="install.html"><a href="install.html#rの起動"><i class="fa fa-check"></i><b>2.1.4</b> Rの起動</a></li>
+<li class="chapter" data-level="2.1.5" data-path="install.html"><a href="install.html#rのテスト"><i class="fa fa-check"></i><b>2.1.5</b> Rのテスト</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#rstudioのインストール"><i class="fa fa-check"></i><b>2.2</b> RStudioのインストール</a>
+<li class="chapter" data-level="2.2" data-path="install.html"><a href="install.html#rstudioのインストール"><i class="fa fa-check"></i><b>2.2</b> RStudioのインストール</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#rstudioのダウンロード"><i class="fa fa-check"></i><b>2.2.1</b> RStudioのダウンロード</a></li>
-<li class="chapter" data-level="2.2.2" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#rstudioの起動"><i class="fa fa-check"></i><b>2.2.2</b> RStudioの起動</a></li>
+<li class="chapter" data-level="2.2.1" data-path="install.html"><a href="install.html#rstudioのダウンロード"><i class="fa fa-check"></i><b>2.2.1</b> RStudioのダウンロード</a></li>
+<li class="chapter" data-level="2.2.2" data-path="install.html"><a href="install.html#rstudioの起動"><i class="fa fa-check"></i><b>2.2.2</b> RStudioの起動</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#他の参考になるサイト"><i class="fa fa-check"></i><b>2.3</b> 他の参考になるサイト</a></li>
-<li class="chapter" data-level="2.4" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#パッケージのインストール"><i class="fa fa-check"></i><b>2.4</b> パッケージのインストール</a></li>
-<li class="chapter" data-level="2.5" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#パッケージの呼び出し"><i class="fa fa-check"></i><b>2.5</b> パッケージの呼び出し</a></li>
-<li class="chapter" data-level="2.6" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#パッケージインストールの際のトラブル"><i class="fa fa-check"></i><b>2.6</b> パッケージインストールの際のトラブル</a></li>
+<li class="chapter" data-level="2.3" data-path="install.html"><a href="install.html#他の参考になるサイト"><i class="fa fa-check"></i><b>2.3</b> 他の参考になるサイト</a></li>
+<li class="chapter" data-level="2.4" data-path="install.html"><a href="install.html#パッケージのインストール"><i class="fa fa-check"></i><b>2.4</b> パッケージのインストール</a></li>
+<li class="chapter" data-level="2.5" data-path="install.html"><a href="install.html#パッケージの呼び出し"><i class="fa fa-check"></i><b>2.5</b> パッケージの呼び出し</a></li>
+<li class="chapter" data-level="2.6" data-path="install.html"><a href="install.html#パッケージインストールの際のトラブル"><i class="fa fa-check"></i><b>2.6</b> パッケージインストールの際のトラブル</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="basic.html"><a href="basic.html"><i class="fa fa-check"></i><b>3</b> Rの基礎</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="basic.html"><a href="basic.html#四則演算"><i class="fa fa-check"></i><b>3.1</b> 四則演算</a></li>
 <li class="chapter" data-level="3.2" data-path="basic.html"><a href="basic.html#ベクトル"><i class="fa fa-check"></i><b>3.2</b> ベクトル</a></li>
-<li class="chapter" data-level="3.3" data-path="basic.html"><a href="basic.html#変数の加工"><i class="fa fa-check"></i><b>3.3</b> 変数の加工</a></li>
+<li class="chapter" data-level="3.3" data-path="basic.html"><a href="basic.html#数値のベクトル"><i class="fa fa-check"></i><b>3.3</b> 数値のベクトル</a></li>
+<li class="chapter" data-level="3.4" data-path="basic.html"><a href="basic.html#文字列のベクトル"><i class="fa fa-check"></i><b>3.4</b> 文字列のベクトル</a></li>
+<li class="chapter" data-level="3.5" data-path="basic.html"><a href="basic.html#オブジェクト"><i class="fa fa-check"></i><b>3.5</b> オブジェクト</a></li>
+<li class="chapter" data-level="3.6" data-path="basic.html"><a href="basic.html#関数"><i class="fa fa-check"></i><b>3.6</b> 関数</a></li>
+<li class="chapter" data-level="3.7" data-path="basic.html"><a href="basic.html#データフレイム"><i class="fa fa-check"></i><b>3.7</b> データフレイム</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="basic.html"><a href="basic.html#データフレイム-1"><i class="fa fa-check"></i><b>3.7.1</b> データフレイム</a></li>
+<li class="chapter" data-level="3.7.2" data-path="basic.html"><a href="basic.html#tibble形式のデータフレイム"><i class="fa fa-check"></i><b>3.7.2</b> tibble形式のデータフレイム</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>4</b> データの読み取り</a></li>
+<li class="chapter" data-level="3.8" data-path="basic.html"><a href="basic.html#ヘルプを活用する"><i class="fa fa-check"></i><b>3.8</b> ヘルプを活用する</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="function.html"><a href="function.html"><i class="fa fa-check"></i><b>4</b> 関数</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="function.html"><a href="function.html#ヘルプ"><i class="fa fa-check"></i><b>4.1</b> ヘルプ</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>5</b> データの読み込み</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data.html"><a href="data.html#csvデータの読み込み"><i class="fa fa-check"></i><b>5.1</b> csvデータの読み込み</a></li>
+<li class="chapter" data-level="5.2" data-path="data.html"><a href="data.html#xlsxデータの読み込み"><i class="fa fa-check"></i><b>5.2</b> xlsxデータの読み込み</a></li>
+<li class="chapter" data-level="5.3" data-path="data.html"><a href="data.html#dtaデータの読み込み"><i class="fa fa-check"></i><b>5.3</b> dtaデータの読み込み</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="basicstatistics.html"><a href="basicstatistics.html"><i class="fa fa-check"></i><b>6</b> 基本的な統計</a></li>
+<li class="chapter" data-level="7" data-path="vizualization.html"><a href="vizualization.html"><i class="fa fa-check"></i><b>7</b> データの視覚化</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="vizualization.html"><a href="vizualization.html#ggplotの基礎"><i class="fa fa-check"></i><b>7.1</b> ggplotの基礎</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="vizualization.html"><a href="vizualization.html#変数の場合"><i class="fa fa-check"></i><b>7.1.1</b> 1変数の場合</a></li>
+<li class="chapter" data-level="7.1.2" data-path="vizualization.html"><a href="vizualization.html#変数の場合-1"><i class="fa fa-check"></i><b>7.1.2</b> 2変数の場合</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>8</b> 回帰分析</a></li>
+<li class="chapter" data-level="9" data-path="DAG.html"><a href="DAG.html"><i class="fa fa-check"></i><b>9</b> 有向非巡回グラフ（DAG）</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="DAG.html"><a href="DAG.html#confounder"><i class="fa fa-check"></i><b>9.1</b> Confounder</a></li>
+<li class="chapter" data-level="9.2" data-path="DAG.html"><a href="DAG.html#mediator"><i class="fa fa-check"></i><b>9.2</b> Mediator</a></li>
+<li class="chapter" data-level="9.3" data-path="DAG.html"><a href="DAG.html#collidar"><i class="fa fa-check"></i><b>9.3</b> Collidar</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="mediation.html"><a href="mediation.html"><i class="fa fa-check"></i><b>10</b> 媒介分析</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="mediation.html"><a href="mediation.html#mediator-1"><i class="fa fa-check"></i><b>10.1</b> Mediator</a></li>
+<li class="chapter" data-level="10.2" data-path="mediation.html"><a href="mediation.html#実際のデータ生成過程"><i class="fa fa-check"></i><b>10.2</b> 実際のデータ生成過程</a></li>
+<li class="chapter" data-level="10.3" data-path="mediation.html"><a href="mediation.html#実際のデータ生成過程3"><i class="fa fa-check"></i><b>10.3</b> 実際のデータ生成過程（3）</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="missing.html"><a href="missing.html"><i class="fa fa-check"></i><b>11</b> 欠損データの分析</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="missing.html"><a href="missing.html#rはなぜややこしいのか"><i class="fa fa-check"></i><b>11.1</b> Rはなぜややこしいのか</a></li>
+<li class="chapter" data-level="11.2" data-path="missing.html"><a href="missing.html#リストワイズ法"><i class="fa fa-check"></i><b>11.2</b> リストワイズ法</a></li>
+<li class="chapter" data-level="11.3" data-path="missing.html"><a href="missing.html#代入法"><i class="fa fa-check"></i><b>11.3</b> 代入法</a></li>
+<li class="chapter" data-level="11.4" data-path="missing.html"><a href="missing.html#重み付け"><i class="fa fa-check"></i><b>11.4</b> 重み付け</a></li>
+<li class="chapter" data-level="11.5" data-path="missing.html"><a href="missing.html#尤度解析法"><i class="fa fa-check"></i><b>11.5</b> 尤度解析法</a></li>
+<li class="chapter" data-level="11.6" data-path="missing.html"><a href="missing.html#amelia-ii欠損データ分析のためのプログラム"><i class="fa fa-check"></i><b>11.6</b> Amelia II：欠損データ分析のためのプログラム</a></li>
+<li class="chapter" data-level="11.7" data-path="missing.html"><a href="missing.html#実践"><i class="fa fa-check"></i><b>11.7</b> 実践</a></li>
+<li class="chapter" data-level="11.8" data-path="missing.html"><a href="missing.html#ameliaによる多重代入"><i class="fa fa-check"></i><b>11.8</b> ameliaによる多重代入</a></li>
+<li class="chapter" data-level="11.9" data-path="missing.html"><a href="missing.html#補助変数"><i class="fa fa-check"></i><b>11.9</b> 補助変数</a></li>
+<li class="chapter" data-level="11.10" data-path="missing.html"><a href="missing.html#平均値と信頼区間を求める"><i class="fa fa-check"></i><b>11.10</b> 平均値と信頼区間を求める</a></li>
+<li class="chapter" data-level="11.11" data-path="missing.html"><a href="missing.html#結果の統合"><i class="fa fa-check"></i><b>11.11</b> 結果の統合</a></li>
+<li class="chapter" data-level="11.12" data-path="missing.html"><a href="missing.html#補助変数-1"><i class="fa fa-check"></i><b>11.12</b> 補助変数</a></li>
+<li class="chapter" data-level="11.13" data-path="missing.html"><a href="missing.html#値変数が従属変数の場合"><i class="fa fa-check"></i><b>11.13</b> 2値変数が従属変数の場合</a></li>
+<li class="chapter" data-level="11.14" data-path="missing.html"><a href="missing.html#メッセージ"><i class="fa fa-check"></i><b>11.14</b> メッセージ</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li></li>
 
@@ -180,7 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R入門</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">社会調査のためのR入門</a>
           </h1>
         </div>
 
@@ -192,43 +272,178 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">3</span> Rの基礎</h1>
 <div id="四則演算" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> 四則演算</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="basic.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 足し算</span></span>
-<span id="cb1-2"><a href="basic.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="basic.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 足し算</span></span>
+<span id="cb7-2"><a href="basic.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="basic.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 引き算</span></span>
-<span id="cb3-2"><a href="basic.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="basic.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 引き算</span></span>
+<span id="cb9-2"><a href="basic.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] -1</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="basic.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 掛け算</span></span>
-<span id="cb5-2"><a href="basic.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="basic.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 掛け算</span></span>
+<span id="cb11-2"><a href="basic.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="basic.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 割り算</span></span>
-<span id="cb7-2"><a href="basic.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="basic.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 割り算</span></span>
+<span id="cb13-2"><a href="basic.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 0.5</code></pre>
 </div>
 <div id="ベクトル" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> ベクトル</h2>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="basic.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1と3と5</span></span>
-<span id="cb9-2"><a href="basic.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1] 1 3 5</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="basic.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -1と3と-5</span></span>
-<span id="cb11-2"><a href="basic.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">3</span>,<span class="sc">-</span><span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1] -1  3 -5</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="basic.html#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb13-2"><a href="basic.html#cb13-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="basic.html#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x,y)</span>
-<span id="cb14-2"><a href="basic.html#cb14-2" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
-<pre><code>##     x y
-## 1   1 a
-## 2   2 b
-## 3   3 c
-## 4   4 d
-## 5   5 e
-## 6   6 f
-## 7   7 g
-## 8   8 h
-## 9   9 i
-## 10 10 j</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="basic.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p>数値や文字列を並べたものをここではベクトルとよぶ．社会調査では個人の特徴である変数の具体的な中身がベクトルとなる．ベクトルは <code>c()</code> （cはcombine あるいはconcatenate）と<code>,</code>（カンマ）使うことで作成できる．<code>c()</code>は値だけではなく，ベクトルをつなぎ合わせることもできる．またベクトルを作成する上で便利な関数（次のセクションを参照）が存在する．連続した数のベクトルを生成する<code>:</code>や<code>seq</code>関数そして数値を繰り返してベクトルを生成する<code>rep</code>関数は覚えたほうが良いだろう．</p>
+</div>
+<div id="数値のベクトル" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> 数値のベクトル</h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="basic.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 3 6 という数値の列</span></span>
+<span id="cb15-2"><a href="basic.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">6</span>)</span></code></pre></div>
+<pre><code>## [1] 1 3 6</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="basic.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1から5まで，1ずつ増加する数値の列</span></span>
+<span id="cb17-2"><a href="basic.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="basic.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># seq関数を用いることもできる</span></span>
+<span id="cb19-2"><a href="basic.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">5</span>, <span class="at">by =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="basic.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 慣れれば省略して表記することも可能</span></span>
+<span id="cb21-2"><a href="basic.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="basic.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># もっとシンプルな方法</span></span>
+<span id="cb23-2"><a href="basic.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="basic.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2000から2020まで3ずつ増える</span></span>
+<span id="cb25-2"><a href="basic.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">2000</span>, <span class="at">to =</span> <span class="dv">2020</span>, <span class="at">by =</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 2000 2003 2006 2009 2012 2015 2018</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="basic.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1が4つならんだ数値の列</span></span>
+<span id="cb27-2"><a href="basic.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 1 1 1 1</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="basic.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rep関数を用いることも可能</span></span>
+<span id="cb29-2"><a href="basic.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">1</span>, <span class="at">times =</span> <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## [1] 1 1 1 1</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="basic.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 慣れれば省略して表記することも可能</span></span>
+<span id="cb31-2"><a href="basic.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## [1] 1 1 1 1</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="basic.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1を6回，2を4回繰り返す</span></span>
+<span id="cb33-2"><a href="basic.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">4</span>))</span></code></pre></div>
+<pre><code>##  [1] 1 1 1 1 1 1 2 2 2 2</code></pre>
+<p>なお，結果の一番左に<code>[1]</code>とあるが，これはその行の1番左の数が何番目の要素であるのかを示している．値が1つであっても表示される．ベクトルが大きくなった場合に役立つ．</p>
+</div>
+<div id="文字列のベクトル" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> 文字列のベクトル</h2>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="basic.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># アルファベット</span></span>
+<span id="cb35-2"><a href="basic.html#cb35-2" aria-hidden="true" tabindex="-1"></a>letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<pre><code>##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot;</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="basic.html#cb37-1" aria-hidden="true" tabindex="-1"></a>LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot;</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="basic.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 文字を使用する場合は&quot;&quot;を使う</span></span>
+<span id="cb39-2"><a href="basic.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;O&quot;</span>,<span class="st">&quot;AB&quot;</span>,<span class="st">&quot;B&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;A&quot;  &quot;O&quot;  &quot;AB&quot; &quot;B&quot;</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="basic.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PPAP</span></span>
+<span id="cb41-2"><a href="basic.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&quot;Pen&quot;</span>,<span class="st">&quot;Pineapple&quot;</span>,<span class="st">&quot;Apple&quot;</span>,<span class="st">&quot;Pen&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Pen&quot;       &quot;Pineapple&quot; &quot;Apple&quot;     &quot;Pen&quot;</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="basic.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 男性10人，女性20人</span></span>
+<span id="cb43-2"><a href="basic.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;Men&quot;</span>, <span class="dv">10</span>), <span class="fu">rep</span>(<span class="st">&quot;Women&quot;</span>, <span class="dv">20</span>))</span></code></pre></div>
+<pre><code>##  [1] &quot;Men&quot;   &quot;Men&quot;   &quot;Men&quot;   &quot;Men&quot;   &quot;Men&quot;   &quot;Men&quot;   &quot;Men&quot;   &quot;Men&quot;   &quot;Men&quot;  
+## [10] &quot;Men&quot;   &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot;
+## [19] &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot;
+## [28] &quot;Women&quot; &quot;Women&quot; &quot;Women&quot;</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="basic.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;Men&quot;</span>,<span class="st">&quot;Women&quot;</span>), <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>))</span></code></pre></div>
+<pre><code>##  [1] &quot;Men&quot;   &quot;Men&quot;   &quot;Men&quot;   &quot;Men&quot;   &quot;Men&quot;   &quot;Men&quot;   &quot;Men&quot;   &quot;Men&quot;   &quot;Men&quot;  
+## [10] &quot;Men&quot;   &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot;
+## [19] &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot; &quot;Women&quot;
+## [28] &quot;Women&quot; &quot;Women&quot; &quot;Women&quot;</code></pre>
+</div>
+<div id="オブジェクト" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> オブジェクト</h2>
+<p>スカラー，ベクトル，データ（後ほど説明）などは，オブジェクトとして扱うことができる．</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="basic.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># aというオブジェクトに12を格納（入れるだけなので結果は出ない）</span></span>
+<span id="cb47-2"><a href="basic.html#cb47-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">12</span></span>
+<span id="cb47-3"><a href="basic.html#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="basic.html#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co"># aを呼び出し，確認</span></span>
+<span id="cb47-5"><a href="basic.html#cb47-5" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="basic.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 以上の作業をまとめて行うためには()を用いる</span></span>
+<span id="cb49-2"><a href="basic.html#cb49-2" aria-hidden="true" tabindex="-1"></a>(a <span class="ot">&lt;-</span> <span class="dv">12</span>)</span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="basic.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bというオブジェクトに1:5を格納</span></span>
+<span id="cb51-2"><a href="basic.html#cb51-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span></code></pre></div>
+<p>オブジェクトを用いて計算なども可能である．</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="basic.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># aとbを足してみる</span></span>
+<span id="cb52-2"><a href="basic.html#cb52-2" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> b </span></code></pre></div>
+<pre><code>## [1] 13 14 15 16 17</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="basic.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># aとbをかけてみる</span></span>
+<span id="cb54-2"><a href="basic.html#cb54-2" aria-hidden="true" tabindex="-1"></a>a <span class="sc">*</span> b </span></code></pre></div>
+<pre><code>## [1] 12 24 36 48 60</code></pre>
+</div>
+<div id="関数" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> 関数</h2>
+<p>オブジェクトに対して関数を適用する．</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="basic.html#cb56-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">5</span> </span>
+<span id="cb56-2"><a href="basic.html#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="basic.html#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 平方根</span></span>
+<span id="cb56-4"><a href="basic.html#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(a)</span></code></pre></div>
+<pre><code>## [1] 2.236068</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="basic.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 自然対数</span></span>
+<span id="cb58-2"><a href="basic.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(a)</span></code></pre></div>
+<pre><code>## [1] 1.609438</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="basic.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 底が2の対数</span></span>
+<span id="cb60-2"><a href="basic.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(a, <span class="at">base =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 2.321928</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="basic.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 常用対数</span></span>
+<span id="cb62-2"><a href="basic.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(a, <span class="at">base =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] 0.69897</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="basic.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log10</span>(a)</span></code></pre></div>
+<pre><code>## [1] 0.69897</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="basic.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 指数関数</span></span>
+<span id="cb66-2"><a href="basic.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(a)</span></code></pre></div>
+<pre><code>## [1] 148.4132</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="basic.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 絶対値</span></span>
+<span id="cb68-2"><a href="basic.html#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abs</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">*</span>a)</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="basic.html#cb70-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb70-2"><a href="basic.html#cb70-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-3"><a href="basic.html#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 合計</span></span>
+<span id="cb70-4"><a href="basic.html#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x)</span></code></pre></div>
+<pre><code>## [1] 55</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="basic.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの数</span></span>
+<span id="cb72-2"><a href="basic.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="basic.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 平均値</span></span>
+<span id="cb74-2"><a href="basic.html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div>
+<pre><code>## [1] 5.5</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="basic.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 平均値（関数の組み合わせ）</span></span>
+<span id="cb76-2"><a href="basic.html#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x) <span class="sc">/</span> <span class="fu">length</span>(x)</span></code></pre></div>
+<pre><code>## [1] 5.5</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="basic.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 中央値</span></span>
+<span id="cb78-2"><a href="basic.html#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(x)</span></code></pre></div>
+<pre><code>## [1] 5.5</code></pre>
+</div>
+<div id="データフレイム" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> データフレイム</h2>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="basic.html#cb80-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">10</span>)</span>
+<span id="cb80-2"><a href="basic.html#cb80-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">8</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">3</span>)</span>
+<span id="cb80-3"><a href="basic.html#cb80-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb80-4"><a href="basic.html#cb80-4" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1]  1  3  5  7  9  2  4  6  8 10</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="basic.html#cb82-1" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
+<pre><code>##  [1] -1  4  5  7  3  4  8  0  1 -3</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="basic.html#cb84-1" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div>
+<pre><code>##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot;</code></pre>
+<div id="データフレイム-1" class="section level3" number="3.7.1">
+<h3><span class="header-section-number">3.7.1</span> データフレイム</h3>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="basic.html#cb86-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x,y,z)</span>
+<span id="cb86-2"><a href="basic.html#cb86-2" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>##     x  y z
+## 1   1 -1 a
+## 2   3  4 b
+## 3   5  5 c
+## 4   7  7 d
+## 5   9  3 e
+## 6   2  4 f
+## 7   4  8 g
+## 8   6  0 h
+## 9   8  1 i
+## 10 10 -3 j</code></pre>
+</div>
+<div id="tibble形式のデータフレイム" class="section level3" number="3.7.2">
+<h3><span class="header-section-number">3.7.2</span> tibble形式のデータフレイム</h3>
+<p>基本的にはこちらのtibble形式のデータフレイムを用いて，データの処理や分析を行う．もしデータフレイムの読み込みでエラーが出る場合（たとえば多重代入法で用いる<code>amelia</code>など），通常のデータフレイムに<code>data.frame(df_tbl)</code>といった操作で変換すればうまくいく場合がある．</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="basic.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <pre><code>## ─ Attaching packages ──────────────────── tidyverse 1.3.1 ─</code></pre>
 <pre><code>## ✓ tibble  3.1.4     ✓ dplyr   1.0.7
 ## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
@@ -237,25 +452,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## ─ Conflicts ───────────────────── tidyverse_conflicts() ─
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="basic.html#cb20-1" aria-hidden="true" tabindex="-1"></a>df_tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(df)</span>
-<span id="cb20-2"><a href="basic.html#cb20-2" aria-hidden="true" tabindex="-1"></a>df_tbl</span></code></pre></div>
-<pre><code>## # A tibble: 10 × 2
-##        x y    
-##    &lt;int&gt; &lt;chr&gt;
-##  1     1 a    
-##  2     2 b    
-##  3     3 c    
-##  4     4 d    
-##  5     5 e    
-##  6     6 f    
-##  7     7 g    
-##  8     8 h    
-##  9     9 i    
-## 10    10 j</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="basic.html#cb92-1" aria-hidden="true" tabindex="-1"></a>df_tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(df)</span>
+<span id="cb92-2"><a href="basic.html#cb92-2" aria-hidden="true" tabindex="-1"></a>df_tbl</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 3
+##        x     y z    
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+##  1     1    -1 a    
+##  2     3     4 b    
+##  3     5     5 c    
+##  4     7     7 d    
+##  5     9     3 e    
+##  6     2     4 f    
+##  7     4     8 g    
+##  8     6     0 h    
+##  9     8     1 i    
+## 10    10    -3 j</code></pre>
 </div>
-<div id="変数の加工" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> 変数の加工</h2>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="basic.html#cb22-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span></code></pre></div>
+</div>
+<div id="ヘルプを活用する" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> ヘルプを活用する</h2>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="basic.html#cb94-1" aria-hidden="true" tabindex="-1"></a>?seq</span></code></pre></div>
+<p><code>example()</code>を使えば，ヘルプのExamplesにあるコードが実行される．</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="basic.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">example</span>(seq)</span></code></pre></div>
+<pre><code>## 
+## seq&gt; seq(0, 1, length.out = 11)
+##  [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+## 
+## seq&gt; seq(stats::rnorm(20)) # effectively &#39;along&#39;
+##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
+## 
+## seq&gt; seq(1, 9, by = 2)     # matches &#39;end&#39;
+## [1] 1 3 5 7 9
+## 
+## seq&gt; seq(1, 9, by = pi)    # stays below &#39;end&#39;
+## [1] 1.000000 4.141593 7.283185
+## 
+## seq&gt; seq(1, 6, by = 3)
+## [1] 1 4
+## 
+## seq&gt; seq(1.575, 5.125, by = 0.05)
+##  [1] 1.575 1.625 1.675 1.725 1.775 1.825 1.875 1.925 1.975 2.025 2.075 2.125
+## [13] 2.175 2.225 2.275 2.325 2.375 2.425 2.475 2.525 2.575 2.625 2.675 2.725
+## [25] 2.775 2.825 2.875 2.925 2.975 3.025 3.075 3.125 3.175 3.225 3.275 3.325
+## [37] 3.375 3.425 3.475 3.525 3.575 3.625 3.675 3.725 3.775 3.825 3.875 3.925
+## [49] 3.975 4.025 4.075 4.125 4.175 4.225 4.275 4.325 4.375 4.425 4.475 4.525
+## [61] 4.575 4.625 4.675 4.725 4.775 4.825 4.875 4.925 4.975 5.025 5.075 5.125
+## 
+## seq&gt; seq(17) # same as 1:17, or even better seq_len(17)
+##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17</code></pre>
 
 </div>
 </div>
@@ -264,8 +508,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="rとrstudioのインストール.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="install.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="function.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -319,6 +563,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
