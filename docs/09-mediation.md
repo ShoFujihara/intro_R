@@ -1,14 +1,12 @@
 # 媒介分析 {#mediation}
 
 
+
+
+
 ```r
 library(dagitty)
 library(lavaan)
-```
-
-```
-## This is lavaan 0.6-9
-## lavaan is FREE software! Please report any bugs.
 ```
 
 
@@ -28,7 +26,7 @@ g <- dagitty('dag{
 plot(g)
 ```
 
-<img src="09-mediation_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+![](09-mediation_files/figure-epub3/unnamed-chunk-2-1.png)<!-- -->
 
 
 
@@ -50,7 +48,7 @@ g <- dagitty('dag{
 plot(g)
 ```
 
-<img src="09-mediation_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+![](09-mediation_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
 
 
 
@@ -72,7 +70,7 @@ g <- dagitty('dag{
 plot(g)
 ```
 
-<img src="09-mediation_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+![](09-mediation_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->
 
 
 ## 実際のデータ生成過程（3）
@@ -107,4 +105,4 @@ coordinates(g) <-
 plot(g)
 ```
 
-<img src="09-mediation_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+![](09-mediation_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->

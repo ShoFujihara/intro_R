@@ -98,3 +98,4 @@ ggplot(d, mapping = aes(x = c17_1hensa)) +
 
 ### 2変数の場合
 
+準備中

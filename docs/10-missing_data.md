@@ -302,7 +302,7 @@ imp_mice_d1 %>%
 densityplot(imp_mice_d1)
 ```
 
-<img src="10-missing_data_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+![](10-missing_data_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
 
 多重代入法の結果を`pool()`によって統合する．
 
@@ -394,14 +394,14 @@ imp_amelia_d1
 overimpute(imp_amelia_d1, var = 2)
 ```
 
-<img src="10-missing_data_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+![](10-missing_data_files/figure-epub3/unnamed-chunk-14-1.png)<!-- -->
 
 
 ```r
 disperse(imp_amelia_d1, dims = 1, m = 100)
 ```
 
-<img src="10-missing_data_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+![](10-missing_data_files/figure-epub3/unnamed-chunk-15-1.png)<!-- -->
 
 ameliaで多重代入を行ったデータをmidsに変換する方法
 
@@ -418,7 +418,7 @@ imp_amelia_d1_mids <-
 densityplot(imp_amelia_d1_mids)
 ```
 
-<img src="10-missing_data_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+![](10-missing_data_files/figure-epub3/unnamed-chunk-17-1.png)<!-- -->
 
 
 ```r
@@ -592,7 +592,7 @@ imp_mice_d2 %>%
 densityplot(imp_mice_d2)
 ```
 
-<img src="10-missing_data_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+![](10-missing_data_files/figure-epub3/unnamed-chunk-24-1.png)<!-- -->
 
 多重代入法の結果を`pool()`によって統合する．
 
@@ -669,14 +669,14 @@ imp_amelia_d2
 overimpute(imp_amelia_d2, var = 2)
 ```
 
-<img src="10-missing_data_files/figure-html/unnamed-chunk-27-1.png" width="672" />
+![](10-missing_data_files/figure-epub3/unnamed-chunk-27-1.png)<!-- -->
 
 
 ```r
 disperse(imp_amelia_d2, dims = 1, m = 100)
 ```
 
-<img src="10-missing_data_files/figure-html/unnamed-chunk-28-1.png" width="672" />
+![](10-missing_data_files/figure-epub3/unnamed-chunk-28-1.png)<!-- -->
 
 ameliaで多重代入を行ったデータをmidsに変換する方法
 
@@ -693,7 +693,7 @@ imp_amelia_d2_mids <-
 densityplot(imp_amelia_d2_mids)
 ```
 
-<img src="10-missing_data_files/figure-html/unnamed-chunk-30-1.png" width="672" />
+![](10-missing_data_files/figure-epub3/unnamed-chunk-30-1.png)<!-- -->
 
 
 ```r
@@ -873,7 +873,7 @@ bind_rows(fit_listwise,fit_mi,fit_mi_aux, .id = "method") %>%
   theme_minimal()
 ```
 
-<img src="10-missing_data_files/figure-html/unnamed-chunk-35-1.png" width="672" />
+![](10-missing_data_files/figure-epub3/unnamed-chunk-35-1.png)<!-- -->
 
 
 ## 結果の統合
@@ -1113,7 +1113,7 @@ imp_mice_d2
 plot(imp_mice_d2)
 ```
 
-<img src="10-missing_data_files/figure-html/unnamed-chunk-40-1.png" width="672" /><img src="10-missing_data_files/figure-html/unnamed-chunk-40-2.png" width="672" /><img src="10-missing_data_files/figure-html/unnamed-chunk-40-3.png" width="672" />
+![](10-missing_data_files/figure-epub3/unnamed-chunk-40-1.png)<!-- -->![](10-missing_data_files/figure-epub3/unnamed-chunk-40-2.png)<!-- -->![](10-missing_data_files/figure-epub3/unnamed-chunk-40-3.png)<!-- -->
 
 
 
@@ -20137,7 +20137,7 @@ toc()
 ```
 
 ```
-## 7.355 sec elapsed
+## 7.215 sec elapsed
 ```
 
 ```r
@@ -20174,7 +20174,7 @@ toc()
 ```
 
 ```
-## 0.206 sec elapsed
+## 0.199 sec elapsed
 ```
 
 
@@ -20328,7 +20328,7 @@ bind_rows(imp_pred, .id = "imp") %>%
   theme_minimal()
 ```
 
-<img src="10-missing_data_files/figure-html/unnamed-chunk-52-1.png" width="672" />
+![](10-missing_data_files/figure-epub3/unnamed-chunk-52-1.png)<!-- -->
 
 
 ## メッセージ

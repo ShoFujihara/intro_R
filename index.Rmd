@@ -1,5 +1,5 @@
 --- 
-title: "R入門"
+title: "社会調査のためのR入門"
 author: "藤原翔"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site

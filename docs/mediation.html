@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>10 媒介分析 | R入門</title>
-  <meta name="description" content="10 媒介分析 | R入門" />
+  <title>10 媒介分析 | 社会調査のためのR入門</title>
+  <meta name="description" content="10 媒介分析 | 社会調査のためのR入門" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="10 媒介分析 | R入門" />
+  <meta property="og:title" content="10 媒介分析 | 社会調査のためのR入門" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="10 媒介分析 | R入門" />
+  <meta name="twitter:title" content="10 媒介分析 | 社会調査のためのR入門" />
   
   
   
@@ -24,7 +24,7 @@
 <meta name="author" content="藤原翔" />
 
 
-<meta name="date" content="2021-09-25" />
+<meta name="date" content="2021-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -120,6 +120,28 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -134,10 +156,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">R入門</a></li>
+<li><a href="./">社会調査のためのR入門</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> bookdown::gitbook: default</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> はじめに</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#内容予定"><i class="fa fa-check"></i><b>1.1</b> 内容（予定）</a></li>
 </ul></li>
@@ -174,6 +196,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7.1" data-path="basic.html"><a href="basic.html#データフレイム-1"><i class="fa fa-check"></i><b>3.7.1</b> データフレイム</a></li>
 <li class="chapter" data-level="3.7.2" data-path="basic.html"><a href="basic.html#tibble形式のデータフレイム"><i class="fa fa-check"></i><b>3.7.2</b> tibble形式のデータフレイム</a></li>
 </ul></li>
+<li class="chapter" data-level="3.8" data-path="basic.html"><a href="basic.html#ヘルプを活用する"><i class="fa fa-check"></i><b>3.8</b> ヘルプを活用する</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="function.html"><a href="function.html"><i class="fa fa-check"></i><b>4</b> 関数</a>
 <ul>
@@ -237,7 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R入門</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">社会調査のためのR入門</a>
           </h1>
         </div>
 
@@ -247,80 +270,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="mediation" class="section level1" number="10">
 <h1><span class="header-section-number">10</span> 媒介分析</h1>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="mediation.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dagitty)</span>
-<span id="cb6-2"><a href="mediation.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span></code></pre></div>
-<pre><code>## This is lavaan 0.6-9
-## lavaan is FREE software! Please report any bugs.</code></pre>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="mediation.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dagitty)</span>
+<span id="cb175-2"><a href="mediation.html#cb175-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span></code></pre></div>
 <div id="mediator-1" class="section level2" number="10.1">
 <h2><span class="header-section-number">10.1</span> Mediator</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="mediation.html#cb8-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">&#39;dag{</span></span>
-<span id="cb8-2"><a href="mediation.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="st">  x [pos=&quot;0,1&quot;]</span></span>
-<span id="cb8-3"><a href="mediation.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="st">  y [pos=&quot;1,1&quot;]</span></span>
-<span id="cb8-4"><a href="mediation.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="st">  m [pos=&quot;0.5,0&quot;]</span></span>
-<span id="cb8-5"><a href="mediation.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; y;</span></span>
-<span id="cb8-6"><a href="mediation.html#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; m -&gt; y</span></span>
-<span id="cb8-7"><a href="mediation.html#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="st">  }&#39;</span>)</span>
-<span id="cb8-8"><a href="mediation.html#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g)</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="mediation.html#cb176-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">&#39;dag{</span></span>
+<span id="cb176-2"><a href="mediation.html#cb176-2" aria-hidden="true" tabindex="-1"></a><span class="st">  x [pos=&quot;0,1&quot;]</span></span>
+<span id="cb176-3"><a href="mediation.html#cb176-3" aria-hidden="true" tabindex="-1"></a><span class="st">  y [pos=&quot;1,1&quot;]</span></span>
+<span id="cb176-4"><a href="mediation.html#cb176-4" aria-hidden="true" tabindex="-1"></a><span class="st">  m [pos=&quot;0.5,0&quot;]</span></span>
+<span id="cb176-5"><a href="mediation.html#cb176-5" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; y;</span></span>
+<span id="cb176-6"><a href="mediation.html#cb176-6" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; m -&gt; y</span></span>
+<span id="cb176-7"><a href="mediation.html#cb176-7" aria-hidden="true" tabindex="-1"></a><span class="st">  }&#39;</span>)</span>
+<span id="cb176-8"><a href="mediation.html#cb176-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g)</span></code></pre></div>
 <p><img src="09-mediation_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
 <div id="実際のデータ生成過程" class="section level2" number="10.2">
 <h2><span class="header-section-number">10.2</span> 実際のデータ生成過程</h2>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="mediation.html#cb9-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">&#39;dag{</span></span>
-<span id="cb9-2"><a href="mediation.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="st">  x [pos=&quot;0,2&quot;]</span></span>
-<span id="cb9-3"><a href="mediation.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="st">  y [pos=&quot;2,2&quot;]</span></span>
-<span id="cb9-4"><a href="mediation.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="st">  m [pos=&quot;1,0&quot;]</span></span>
-<span id="cb9-5"><a href="mediation.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="st">  z [pos=&quot;0,0&quot;]</span></span>
-<span id="cb9-6"><a href="mediation.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; y;</span></span>
-<span id="cb9-7"><a href="mediation.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; m -&gt; y;</span></span>
-<span id="cb9-8"><a href="mediation.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; x;</span></span>
-<span id="cb9-9"><a href="mediation.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; m;</span></span>
-<span id="cb9-10"><a href="mediation.html#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; y;</span></span>
-<span id="cb9-11"><a href="mediation.html#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="st">  }&#39;</span>)</span>
-<span id="cb9-12"><a href="mediation.html#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g)</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="mediation.html#cb177-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">&#39;dag{</span></span>
+<span id="cb177-2"><a href="mediation.html#cb177-2" aria-hidden="true" tabindex="-1"></a><span class="st">  x [pos=&quot;0,2&quot;]</span></span>
+<span id="cb177-3"><a href="mediation.html#cb177-3" aria-hidden="true" tabindex="-1"></a><span class="st">  y [pos=&quot;2,2&quot;]</span></span>
+<span id="cb177-4"><a href="mediation.html#cb177-4" aria-hidden="true" tabindex="-1"></a><span class="st">  m [pos=&quot;1,0&quot;]</span></span>
+<span id="cb177-5"><a href="mediation.html#cb177-5" aria-hidden="true" tabindex="-1"></a><span class="st">  z [pos=&quot;0,0&quot;]</span></span>
+<span id="cb177-6"><a href="mediation.html#cb177-6" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; y;</span></span>
+<span id="cb177-7"><a href="mediation.html#cb177-7" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; m -&gt; y;</span></span>
+<span id="cb177-8"><a href="mediation.html#cb177-8" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; x;</span></span>
+<span id="cb177-9"><a href="mediation.html#cb177-9" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; m;</span></span>
+<span id="cb177-10"><a href="mediation.html#cb177-10" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; y;</span></span>
+<span id="cb177-11"><a href="mediation.html#cb177-11" aria-hidden="true" tabindex="-1"></a><span class="st">  }&#39;</span>)</span>
+<span id="cb177-12"><a href="mediation.html#cb177-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g)</span></code></pre></div>
 <p><img src="09-mediation_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="mediation.html#cb10-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">&#39;dag{</span></span>
-<span id="cb10-2"><a href="mediation.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="st">  x [pos=&quot;0,2&quot;]</span></span>
-<span id="cb10-3"><a href="mediation.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="st">  y [pos=&quot;2,2&quot;]</span></span>
-<span id="cb10-4"><a href="mediation.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="st">  m [pos=&quot;1,0&quot;]</span></span>
-<span id="cb10-5"><a href="mediation.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="st">  z [pos=&quot;0,0&quot;]</span></span>
-<span id="cb10-6"><a href="mediation.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="st">  w [pos=&quot;2,0&quot;]</span></span>
-<span id="cb10-7"><a href="mediation.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; y;</span></span>
-<span id="cb10-8"><a href="mediation.html#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; m -&gt; y;</span></span>
-<span id="cb10-9"><a href="mediation.html#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; x;</span></span>
-<span id="cb10-10"><a href="mediation.html#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; m;</span></span>
-<span id="cb10-11"><a href="mediation.html#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; y;</span></span>
-<span id="cb10-12"><a href="mediation.html#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="st">  w -&gt; m;</span></span>
-<span id="cb10-13"><a href="mediation.html#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="st">  w -&gt; y;</span></span>
-<span id="cb10-14"><a href="mediation.html#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="st">  }&#39;</span>)</span>
-<span id="cb10-15"><a href="mediation.html#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g)</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="mediation.html#cb178-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">&#39;dag{</span></span>
+<span id="cb178-2"><a href="mediation.html#cb178-2" aria-hidden="true" tabindex="-1"></a><span class="st">  x [pos=&quot;0,2&quot;]</span></span>
+<span id="cb178-3"><a href="mediation.html#cb178-3" aria-hidden="true" tabindex="-1"></a><span class="st">  y [pos=&quot;2,2&quot;]</span></span>
+<span id="cb178-4"><a href="mediation.html#cb178-4" aria-hidden="true" tabindex="-1"></a><span class="st">  m [pos=&quot;1,0&quot;]</span></span>
+<span id="cb178-5"><a href="mediation.html#cb178-5" aria-hidden="true" tabindex="-1"></a><span class="st">  z [pos=&quot;0,0&quot;]</span></span>
+<span id="cb178-6"><a href="mediation.html#cb178-6" aria-hidden="true" tabindex="-1"></a><span class="st">  w [pos=&quot;2,0&quot;]</span></span>
+<span id="cb178-7"><a href="mediation.html#cb178-7" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; y;</span></span>
+<span id="cb178-8"><a href="mediation.html#cb178-8" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; m -&gt; y;</span></span>
+<span id="cb178-9"><a href="mediation.html#cb178-9" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; x;</span></span>
+<span id="cb178-10"><a href="mediation.html#cb178-10" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; m;</span></span>
+<span id="cb178-11"><a href="mediation.html#cb178-11" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; y;</span></span>
+<span id="cb178-12"><a href="mediation.html#cb178-12" aria-hidden="true" tabindex="-1"></a><span class="st">  w -&gt; m;</span></span>
+<span id="cb178-13"><a href="mediation.html#cb178-13" aria-hidden="true" tabindex="-1"></a><span class="st">  w -&gt; y;</span></span>
+<span id="cb178-14"><a href="mediation.html#cb178-14" aria-hidden="true" tabindex="-1"></a><span class="st">  }&#39;</span>)</span>
+<span id="cb178-15"><a href="mediation.html#cb178-15" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g)</span></code></pre></div>
 <p><img src="09-mediation_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 <div id="実際のデータ生成過程3" class="section level2" number="10.3">
 <h2><span class="header-section-number">10.3</span> 実際のデータ生成過程（3）</h2>
 <p>おそらく最も多くの場面では次のような変数間の関連構造が想定できるだろう．</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="mediation.html#cb11-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">&#39;dag{</span></span>
-<span id="cb11-2"><a href="mediation.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="st">  x</span></span>
-<span id="cb11-3"><a href="mediation.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="st">  y</span></span>
-<span id="cb11-4"><a href="mediation.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="st">  m</span></span>
-<span id="cb11-5"><a href="mediation.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="st">  z</span></span>
-<span id="cb11-6"><a href="mediation.html#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="st">  w</span></span>
-<span id="cb11-7"><a href="mediation.html#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; x;</span></span>
-<span id="cb11-8"><a href="mediation.html#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; m;</span></span>
-<span id="cb11-9"><a href="mediation.html#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; w;</span></span>
-<span id="cb11-10"><a href="mediation.html#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; y;</span></span>
-<span id="cb11-11"><a href="mediation.html#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; y;</span></span>
-<span id="cb11-12"><a href="mediation.html#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; m;</span></span>
-<span id="cb11-13"><a href="mediation.html#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; w;</span></span>
-<span id="cb11-14"><a href="mediation.html#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="st">  w -&gt; m;</span></span>
-<span id="cb11-15"><a href="mediation.html#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="st">  w -&gt; y;</span></span>
-<span id="cb11-16"><a href="mediation.html#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="st">  m -&gt; y;</span></span>
-<span id="cb11-17"><a href="mediation.html#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="st">  }&#39;</span>)</span>
-<span id="cb11-18"><a href="mediation.html#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-19"><a href="mediation.html#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="fu">coordinates</span>(g) <span class="ot">&lt;-</span></span>
-<span id="cb11-20"><a href="mediation.html#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="at">z =</span> <span class="dv">0</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">w =</span> <span class="dv">2</span>, <span class="at">m =</span> <span class="dv">3</span>, <span class="at">y =</span> <span class="dv">5</span>),</span>
-<span id="cb11-21"><a href="mediation.html#cb11-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="fu">c</span>(<span class="at">z =</span> <span class="dv">0</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">w =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="fl">0.5</span>)</span>
-<span id="cb11-22"><a href="mediation.html#cb11-22" aria-hidden="true" tabindex="-1"></a>         )</span>
-<span id="cb11-23"><a href="mediation.html#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g)</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="mediation.html#cb179-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">&#39;dag{</span></span>
+<span id="cb179-2"><a href="mediation.html#cb179-2" aria-hidden="true" tabindex="-1"></a><span class="st">  x</span></span>
+<span id="cb179-3"><a href="mediation.html#cb179-3" aria-hidden="true" tabindex="-1"></a><span class="st">  y</span></span>
+<span id="cb179-4"><a href="mediation.html#cb179-4" aria-hidden="true" tabindex="-1"></a><span class="st">  m</span></span>
+<span id="cb179-5"><a href="mediation.html#cb179-5" aria-hidden="true" tabindex="-1"></a><span class="st">  z</span></span>
+<span id="cb179-6"><a href="mediation.html#cb179-6" aria-hidden="true" tabindex="-1"></a><span class="st">  w</span></span>
+<span id="cb179-7"><a href="mediation.html#cb179-7" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; x;</span></span>
+<span id="cb179-8"><a href="mediation.html#cb179-8" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; m;</span></span>
+<span id="cb179-9"><a href="mediation.html#cb179-9" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; w;</span></span>
+<span id="cb179-10"><a href="mediation.html#cb179-10" aria-hidden="true" tabindex="-1"></a><span class="st">  z -&gt; y;</span></span>
+<span id="cb179-11"><a href="mediation.html#cb179-11" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; y;</span></span>
+<span id="cb179-12"><a href="mediation.html#cb179-12" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; m;</span></span>
+<span id="cb179-13"><a href="mediation.html#cb179-13" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; w;</span></span>
+<span id="cb179-14"><a href="mediation.html#cb179-14" aria-hidden="true" tabindex="-1"></a><span class="st">  w -&gt; m;</span></span>
+<span id="cb179-15"><a href="mediation.html#cb179-15" aria-hidden="true" tabindex="-1"></a><span class="st">  w -&gt; y;</span></span>
+<span id="cb179-16"><a href="mediation.html#cb179-16" aria-hidden="true" tabindex="-1"></a><span class="st">  m -&gt; y;</span></span>
+<span id="cb179-17"><a href="mediation.html#cb179-17" aria-hidden="true" tabindex="-1"></a><span class="st">  }&#39;</span>)</span>
+<span id="cb179-18"><a href="mediation.html#cb179-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb179-19"><a href="mediation.html#cb179-19" aria-hidden="true" tabindex="-1"></a><span class="fu">coordinates</span>(g) <span class="ot">&lt;-</span></span>
+<span id="cb179-20"><a href="mediation.html#cb179-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="at">z =</span> <span class="dv">0</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">w =</span> <span class="dv">2</span>, <span class="at">m =</span> <span class="dv">3</span>, <span class="at">y =</span> <span class="dv">5</span>),</span>
+<span id="cb179-21"><a href="mediation.html#cb179-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="fu">c</span>(<span class="at">z =</span> <span class="dv">0</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">w =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="fl">0.5</span>)</span>
+<span id="cb179-22"><a href="mediation.html#cb179-22" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb179-23"><a href="mediation.html#cb179-23" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g)</span></code></pre></div>
 <p><img src="09-mediation_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 
 </div>
@@ -385,6 +406,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

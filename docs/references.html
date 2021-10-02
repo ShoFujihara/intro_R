@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>References | 社会調査のためのR入門</title>
+  <meta name="description" content="References | 社会調査のためのR入門" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="References | 社会調査のためのR入門" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="References | 社会調査のためのR入門" />
+  
+  
+  
+
+<meta name="author" content="藤原翔" />
+
+
+<meta name="date" content="2021-10-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="missing.html"/>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">社会調査のためのR入門</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> はじめに</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#内容予定"><i class="fa fa-check"></i><b>1.1</b> 内容（予定）</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>2</b> RとRStudioのインストール</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="install.html"><a href="install.html#rのインストール"><i class="fa fa-check"></i><b>2.1</b> Rのインストール</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="install.html"><a href="install.html#ダウンロード"><i class="fa fa-check"></i><b>2.1.1</b> ダウンロード</a></li>
+<li class="chapter" data-level="2.1.2" data-path="install.html"><a href="install.html#mac"><i class="fa fa-check"></i><b>2.1.2</b> MAC</a></li>
+<li class="chapter" data-level="2.1.3" data-path="install.html"><a href="install.html#windows"><i class="fa fa-check"></i><b>2.1.3</b> Windows</a></li>
+<li class="chapter" data-level="2.1.4" data-path="install.html"><a href="install.html#rの起動"><i class="fa fa-check"></i><b>2.1.4</b> Rの起動</a></li>
+<li class="chapter" data-level="2.1.5" data-path="install.html"><a href="install.html#rのテスト"><i class="fa fa-check"></i><b>2.1.5</b> Rのテスト</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="install.html"><a href="install.html#rstudioのインストール"><i class="fa fa-check"></i><b>2.2</b> RStudioのインストール</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="install.html"><a href="install.html#rstudioのダウンロード"><i class="fa fa-check"></i><b>2.2.1</b> RStudioのダウンロード</a></li>
+<li class="chapter" data-level="2.2.2" data-path="install.html"><a href="install.html#rstudioの起動"><i class="fa fa-check"></i><b>2.2.2</b> RStudioの起動</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="install.html"><a href="install.html#他の参考になるサイト"><i class="fa fa-check"></i><b>2.3</b> 他の参考になるサイト</a></li>
+<li class="chapter" data-level="2.4" data-path="install.html"><a href="install.html#パッケージのインストール"><i class="fa fa-check"></i><b>2.4</b> パッケージのインストール</a></li>
+<li class="chapter" data-level="2.5" data-path="install.html"><a href="install.html#パッケージの呼び出し"><i class="fa fa-check"></i><b>2.5</b> パッケージの呼び出し</a></li>
+<li class="chapter" data-level="2.6" data-path="install.html"><a href="install.html#パッケージインストールの際のトラブル"><i class="fa fa-check"></i><b>2.6</b> パッケージインストールの際のトラブル</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basic.html"><a href="basic.html"><i class="fa fa-check"></i><b>3</b> Rの基礎</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="basic.html"><a href="basic.html#四則演算"><i class="fa fa-check"></i><b>3.1</b> 四則演算</a></li>
+<li class="chapter" data-level="3.2" data-path="basic.html"><a href="basic.html#ベクトル"><i class="fa fa-check"></i><b>3.2</b> ベクトル</a></li>
+<li class="chapter" data-level="3.3" data-path="basic.html"><a href="basic.html#数値のベクトル"><i class="fa fa-check"></i><b>3.3</b> 数値のベクトル</a></li>
+<li class="chapter" data-level="3.4" data-path="basic.html"><a href="basic.html#文字列のベクトル"><i class="fa fa-check"></i><b>3.4</b> 文字列のベクトル</a></li>
+<li class="chapter" data-level="3.5" data-path="basic.html"><a href="basic.html#オブジェクト"><i class="fa fa-check"></i><b>3.5</b> オブジェクト</a></li>
+<li class="chapter" data-level="3.6" data-path="basic.html"><a href="basic.html#関数"><i class="fa fa-check"></i><b>3.6</b> 関数</a></li>
+<li class="chapter" data-level="3.7" data-path="basic.html"><a href="basic.html#データフレイム"><i class="fa fa-check"></i><b>3.7</b> データフレイム</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="basic.html"><a href="basic.html#データフレイム-1"><i class="fa fa-check"></i><b>3.7.1</b> データフレイム</a></li>
+<li class="chapter" data-level="3.7.2" data-path="basic.html"><a href="basic.html#tibble形式のデータフレイム"><i class="fa fa-check"></i><b>3.7.2</b> tibble形式のデータフレイム</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="basic.html"><a href="basic.html#ヘルプを活用する"><i class="fa fa-check"></i><b>3.8</b> ヘルプを活用する</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="function.html"><a href="function.html"><i class="fa fa-check"></i><b>4</b> 関数</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="function.html"><a href="function.html#ヘルプ"><i class="fa fa-check"></i><b>4.1</b> ヘルプ</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>5</b> データの読み込み</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data.html"><a href="data.html#csvデータの読み込み"><i class="fa fa-check"></i><b>5.1</b> csvデータの読み込み</a></li>
+<li class="chapter" data-level="5.2" data-path="data.html"><a href="data.html#xlsxデータの読み込み"><i class="fa fa-check"></i><b>5.2</b> xlsxデータの読み込み</a></li>
+<li class="chapter" data-level="5.3" data-path="data.html"><a href="data.html#dtaデータの読み込み"><i class="fa fa-check"></i><b>5.3</b> dtaデータの読み込み</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="basicstatistics.html"><a href="basicstatistics.html"><i class="fa fa-check"></i><b>6</b> 基本的な統計</a></li>
+<li class="chapter" data-level="7" data-path="vizualization.html"><a href="vizualization.html"><i class="fa fa-check"></i><b>7</b> データの視覚化</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="vizualization.html"><a href="vizualization.html#ggplotの基礎"><i class="fa fa-check"></i><b>7.1</b> ggplotの基礎</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="vizualization.html"><a href="vizualization.html#変数の場合"><i class="fa fa-check"></i><b>7.1.1</b> 1変数の場合</a></li>
+<li class="chapter" data-level="7.1.2" data-path="vizualization.html"><a href="vizualization.html#変数の場合-1"><i class="fa fa-check"></i><b>7.1.2</b> 2変数の場合</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>8</b> 回帰分析</a></li>
+<li class="chapter" data-level="9" data-path="DAG.html"><a href="DAG.html"><i class="fa fa-check"></i><b>9</b> 有向非巡回グラフ（DAG）</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="DAG.html"><a href="DAG.html#confounder"><i class="fa fa-check"></i><b>9.1</b> Confounder</a></li>
+<li class="chapter" data-level="9.2" data-path="DAG.html"><a href="DAG.html#mediator"><i class="fa fa-check"></i><b>9.2</b> Mediator</a></li>
+<li class="chapter" data-level="9.3" data-path="DAG.html"><a href="DAG.html#collidar"><i class="fa fa-check"></i><b>9.3</b> Collidar</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="mediation.html"><a href="mediation.html"><i class="fa fa-check"></i><b>10</b> 媒介分析</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="mediation.html"><a href="mediation.html#mediator-1"><i class="fa fa-check"></i><b>10.1</b> Mediator</a></li>
+<li class="chapter" data-level="10.2" data-path="mediation.html"><a href="mediation.html#実際のデータ生成過程"><i class="fa fa-check"></i><b>10.2</b> 実際のデータ生成過程</a></li>
+<li class="chapter" data-level="10.3" data-path="mediation.html"><a href="mediation.html#実際のデータ生成過程3"><i class="fa fa-check"></i><b>10.3</b> 実際のデータ生成過程（3）</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="missing.html"><a href="missing.html"><i class="fa fa-check"></i><b>11</b> 欠損データの分析</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="missing.html"><a href="missing.html#rはなぜややこしいのか"><i class="fa fa-check"></i><b>11.1</b> Rはなぜややこしいのか</a></li>
+<li class="chapter" data-level="11.2" data-path="missing.html"><a href="missing.html#リストワイズ法"><i class="fa fa-check"></i><b>11.2</b> リストワイズ法</a></li>
+<li class="chapter" data-level="11.3" data-path="missing.html"><a href="missing.html#代入法"><i class="fa fa-check"></i><b>11.3</b> 代入法</a></li>
+<li class="chapter" data-level="11.4" data-path="missing.html"><a href="missing.html#重み付け"><i class="fa fa-check"></i><b>11.4</b> 重み付け</a></li>
+<li class="chapter" data-level="11.5" data-path="missing.html"><a href="missing.html#尤度解析法"><i class="fa fa-check"></i><b>11.5</b> 尤度解析法</a></li>
+<li class="chapter" data-level="11.6" data-path="missing.html"><a href="missing.html#amelia-ii欠損データ分析のためのプログラム"><i class="fa fa-check"></i><b>11.6</b> Amelia II：欠損データ分析のためのプログラム</a></li>
+<li class="chapter" data-level="11.7" data-path="missing.html"><a href="missing.html#実践"><i class="fa fa-check"></i><b>11.7</b> 実践</a></li>
+<li class="chapter" data-level="11.8" data-path="missing.html"><a href="missing.html#ameliaによる多重代入"><i class="fa fa-check"></i><b>11.8</b> ameliaによる多重代入</a></li>
+<li class="chapter" data-level="11.9" data-path="missing.html"><a href="missing.html#補助変数"><i class="fa fa-check"></i><b>11.9</b> 補助変数</a></li>
+<li class="chapter" data-level="11.10" data-path="missing.html"><a href="missing.html#平均値と信頼区間を求める"><i class="fa fa-check"></i><b>11.10</b> 平均値と信頼区間を求める</a></li>
+<li class="chapter" data-level="11.11" data-path="missing.html"><a href="missing.html#結果の統合"><i class="fa fa-check"></i><b>11.11</b> 結果の統合</a></li>
+<li class="chapter" data-level="11.12" data-path="missing.html"><a href="missing.html#補助変数-1"><i class="fa fa-check"></i><b>11.12</b> 補助変数</a></li>
+<li class="chapter" data-level="11.13" data-path="missing.html"><a href="missing.html#値変数が従属変数の場合"><i class="fa fa-check"></i><b>11.13</b> 2値変数が従属変数の場合</a></li>
+<li class="chapter" data-level="11.14" data-path="missing.html"><a href="missing.html#メッセージ"><i class="fa fa-check"></i><b>11.14</b> メッセージ</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">社会調査のためのR入門</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+King, Gary, James Honaker, Anne Joseph, and Kenneth Scheve. 2001. <span>“Analyzing <span>Incomplete</span> <span>Political</span> <span>Science</span> <span>Data</span>: <span>An</span> <span>Alternative</span> <span>Algorithm</span> for <span>Multiple</span> <span>Imputation</span>.”</span> <em>American Political Science Review</em> 95 (1): 49–69. <a href="https://doi.org/10.1017/S0003055401000235">https://doi.org/10.1017/S0003055401000235</a>.
+</div>
+<div class="csl-entry">
+Van Buuren, Stef. 2018. <em>Flexible <span>Imputation</span> of <span>Missing</span> <span>Data</span></em>. Second Edition. Chapman; Hall/CRC.
+</div>
+<div class="csl-entry">
+高橋将宜, and 渡辺美智子. 2017. <em>欠測データ処理: <span>Rによる単一代入法と多重代入法</span></em>. Tōkyō-to Bunkyō-ku: 共立出版.
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="missing.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["R入門.pdf", "R入門.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

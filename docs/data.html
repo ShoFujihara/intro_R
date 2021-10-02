@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 データの読み込み | R入門</title>
-  <meta name="description" content="5 データの読み込み | R入門" />
+  <title>5 データの読み込み | 社会調査のためのR入門</title>
+  <meta name="description" content="5 データの読み込み | 社会調査のためのR入門" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 データの読み込み | R入門" />
+  <meta property="og:title" content="5 データの読み込み | 社会調査のためのR入門" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 データの読み込み | R入門" />
+  <meta name="twitter:title" content="5 データの読み込み | 社会調査のためのR入門" />
   
   
   
@@ -24,7 +24,7 @@
 <meta name="author" content="藤原翔" />
 
 
-<meta name="date" content="2021-09-25" />
+<meta name="date" content="2021-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="function.html"/>
-
+<link rel="next" href="basicstatistics.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -120,6 +120,28 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -134,10 +156,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">R入門</a></li>
+<li><a href="./">社会調査のためのR入門</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> bookdown::gitbook: default</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> はじめに</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#内容予定"><i class="fa fa-check"></i><b>1.1</b> 内容（予定）</a></li>
 </ul></li>
@@ -165,15 +187,67 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.1" data-path="basic.html"><a href="basic.html#四則演算"><i class="fa fa-check"></i><b>3.1</b> 四則演算</a></li>
 <li class="chapter" data-level="3.2" data-path="basic.html"><a href="basic.html#ベクトル"><i class="fa fa-check"></i><b>3.2</b> ベクトル</a></li>
-<li class="chapter" data-level="3.3" data-path="basic.html"><a href="basic.html#変数の加工"><i class="fa fa-check"></i><b>3.3</b> 変数の加工</a></li>
+<li class="chapter" data-level="3.3" data-path="basic.html"><a href="basic.html#数値のベクトル"><i class="fa fa-check"></i><b>3.3</b> 数値のベクトル</a></li>
+<li class="chapter" data-level="3.4" data-path="basic.html"><a href="basic.html#文字列のベクトル"><i class="fa fa-check"></i><b>3.4</b> 文字列のベクトル</a></li>
+<li class="chapter" data-level="3.5" data-path="basic.html"><a href="basic.html#オブジェクト"><i class="fa fa-check"></i><b>3.5</b> オブジェクト</a></li>
+<li class="chapter" data-level="3.6" data-path="basic.html"><a href="basic.html#関数"><i class="fa fa-check"></i><b>3.6</b> 関数</a></li>
+<li class="chapter" data-level="3.7" data-path="basic.html"><a href="basic.html#データフレイム"><i class="fa fa-check"></i><b>3.7</b> データフレイム</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="basic.html"><a href="basic.html#データフレイム-1"><i class="fa fa-check"></i><b>3.7.1</b> データフレイム</a></li>
+<li class="chapter" data-level="3.7.2" data-path="basic.html"><a href="basic.html#tibble形式のデータフレイム"><i class="fa fa-check"></i><b>3.7.2</b> tibble形式のデータフレイム</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="function.html"><a href="function.html"><i class="fa fa-check"></i><b>4</b> 関数</a></li>
+<li class="chapter" data-level="3.8" data-path="basic.html"><a href="basic.html#ヘルプを活用する"><i class="fa fa-check"></i><b>3.8</b> ヘルプを活用する</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="function.html"><a href="function.html"><i class="fa fa-check"></i><b>4</b> 関数</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="function.html"><a href="function.html#ヘルプ"><i class="fa fa-check"></i><b>4.1</b> ヘルプ</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>5</b> データの読み込み</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="data.html"><a href="data.html#csvデータの読み込み"><i class="fa fa-check"></i><b>5.1</b> csvデータの読み込み</a></li>
 <li class="chapter" data-level="5.2" data-path="data.html"><a href="data.html#xlsxデータの読み込み"><i class="fa fa-check"></i><b>5.2</b> xlsxデータの読み込み</a></li>
 <li class="chapter" data-level="5.3" data-path="data.html"><a href="data.html#dtaデータの読み込み"><i class="fa fa-check"></i><b>5.3</b> dtaデータの読み込み</a></li>
 </ul></li>
+<li class="chapter" data-level="6" data-path="basicstatistics.html"><a href="basicstatistics.html"><i class="fa fa-check"></i><b>6</b> 基本的な統計</a></li>
+<li class="chapter" data-level="7" data-path="vizualization.html"><a href="vizualization.html"><i class="fa fa-check"></i><b>7</b> データの視覚化</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="vizualization.html"><a href="vizualization.html#ggplotの基礎"><i class="fa fa-check"></i><b>7.1</b> ggplotの基礎</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="vizualization.html"><a href="vizualization.html#変数の場合"><i class="fa fa-check"></i><b>7.1.1</b> 1変数の場合</a></li>
+<li class="chapter" data-level="7.1.2" data-path="vizualization.html"><a href="vizualization.html#変数の場合-1"><i class="fa fa-check"></i><b>7.1.2</b> 2変数の場合</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>8</b> 回帰分析</a></li>
+<li class="chapter" data-level="9" data-path="DAG.html"><a href="DAG.html"><i class="fa fa-check"></i><b>9</b> 有向非巡回グラフ（DAG）</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="DAG.html"><a href="DAG.html#confounder"><i class="fa fa-check"></i><b>9.1</b> Confounder</a></li>
+<li class="chapter" data-level="9.2" data-path="DAG.html"><a href="DAG.html#mediator"><i class="fa fa-check"></i><b>9.2</b> Mediator</a></li>
+<li class="chapter" data-level="9.3" data-path="DAG.html"><a href="DAG.html#collidar"><i class="fa fa-check"></i><b>9.3</b> Collidar</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="mediation.html"><a href="mediation.html"><i class="fa fa-check"></i><b>10</b> 媒介分析</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="mediation.html"><a href="mediation.html#mediator-1"><i class="fa fa-check"></i><b>10.1</b> Mediator</a></li>
+<li class="chapter" data-level="10.2" data-path="mediation.html"><a href="mediation.html#実際のデータ生成過程"><i class="fa fa-check"></i><b>10.2</b> 実際のデータ生成過程</a></li>
+<li class="chapter" data-level="10.3" data-path="mediation.html"><a href="mediation.html#実際のデータ生成過程3"><i class="fa fa-check"></i><b>10.3</b> 実際のデータ生成過程（3）</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="missing.html"><a href="missing.html"><i class="fa fa-check"></i><b>11</b> 欠損データの分析</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="missing.html"><a href="missing.html#rはなぜややこしいのか"><i class="fa fa-check"></i><b>11.1</b> Rはなぜややこしいのか</a></li>
+<li class="chapter" data-level="11.2" data-path="missing.html"><a href="missing.html#リストワイズ法"><i class="fa fa-check"></i><b>11.2</b> リストワイズ法</a></li>
+<li class="chapter" data-level="11.3" data-path="missing.html"><a href="missing.html#代入法"><i class="fa fa-check"></i><b>11.3</b> 代入法</a></li>
+<li class="chapter" data-level="11.4" data-path="missing.html"><a href="missing.html#重み付け"><i class="fa fa-check"></i><b>11.4</b> 重み付け</a></li>
+<li class="chapter" data-level="11.5" data-path="missing.html"><a href="missing.html#尤度解析法"><i class="fa fa-check"></i><b>11.5</b> 尤度解析法</a></li>
+<li class="chapter" data-level="11.6" data-path="missing.html"><a href="missing.html#amelia-ii欠損データ分析のためのプログラム"><i class="fa fa-check"></i><b>11.6</b> Amelia II：欠損データ分析のためのプログラム</a></li>
+<li class="chapter" data-level="11.7" data-path="missing.html"><a href="missing.html#実践"><i class="fa fa-check"></i><b>11.7</b> 実践</a></li>
+<li class="chapter" data-level="11.8" data-path="missing.html"><a href="missing.html#ameliaによる多重代入"><i class="fa fa-check"></i><b>11.8</b> ameliaによる多重代入</a></li>
+<li class="chapter" data-level="11.9" data-path="missing.html"><a href="missing.html#補助変数"><i class="fa fa-check"></i><b>11.9</b> 補助変数</a></li>
+<li class="chapter" data-level="11.10" data-path="missing.html"><a href="missing.html#平均値と信頼区間を求める"><i class="fa fa-check"></i><b>11.10</b> 平均値と信頼区間を求める</a></li>
+<li class="chapter" data-level="11.11" data-path="missing.html"><a href="missing.html#結果の統合"><i class="fa fa-check"></i><b>11.11</b> 結果の統合</a></li>
+<li class="chapter" data-level="11.12" data-path="missing.html"><a href="missing.html#補助変数-1"><i class="fa fa-check"></i><b>11.12</b> 補助変数</a></li>
+<li class="chapter" data-level="11.13" data-path="missing.html"><a href="missing.html#値変数が従属変数の場合"><i class="fa fa-check"></i><b>11.13</b> 2値変数が従属変数の場合</a></li>
+<li class="chapter" data-level="11.14" data-path="missing.html"><a href="missing.html#メッセージ"><i class="fa fa-check"></i><b>11.14</b> メッセージ</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li></li>
 
@@ -186,7 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R入門</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">社会調査のためのR入門</a>
           </h1>
         </div>
 
@@ -199,7 +273,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="csvデータの読み込み" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> csvデータの読み込み</h2>
 <p><code>read_csv()</code>を用いる．<code>read.csv</code>でも可能．</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="data.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <pre><code>## ─ Attaching packages ──────────────────── tidyverse 1.3.1 ─</code></pre>
 <pre><code>## ✓ tibble  3.1.4     ✓ dplyr   1.0.7
 ## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
@@ -208,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## ─ Conflicts ───────────────────── tidyverse_conflicts() ─
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="data.html#cb5-1" aria-hidden="true" tabindex="-1"></a>d_csv <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/example_1.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="data.html#cb126-1" aria-hidden="true" tabindex="-1"></a>d_csv <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/example_1.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 1854 Columns: 9</code></pre>
 <pre><code>## ─ Column specification ────────────────────────────
 ## Delimiter: &quot;,&quot;
@@ -216,7 +290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="data.html#cb9-1" aria-hidden="true" tabindex="-1"></a>d_csv</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="data.html#cb130-1" aria-hidden="true" tabindex="-1"></a>d_csv</span></code></pre></div>
 <pre><code>## # A tibble: 1,854 × 9
 ##       id  c1_1   c2a   c2b   c2c   c2d   c2e c17_1hensa  c15a
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;
@@ -235,9 +309,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="xlsxデータの読み込み" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> xlsxデータの読み込み</h2>
 <p>xlsxデータを読み込む．</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="data.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb11-2"><a href="data.html#cb11-2" aria-hidden="true" tabindex="-1"></a>d_xlsx <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;data/example_1.xlsx&quot;</span>)</span>
-<span id="cb11-3"><a href="data.html#cb11-3" aria-hidden="true" tabindex="-1"></a>d_xlsx</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="data.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb132-2"><a href="data.html#cb132-2" aria-hidden="true" tabindex="-1"></a>d_xlsx <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;data/example_1.xlsx&quot;</span>)</span>
+<span id="cb132-3"><a href="data.html#cb132-3" aria-hidden="true" tabindex="-1"></a>d_xlsx</span></code></pre></div>
 <pre><code>## # A tibble: 1,854 × 9
 ##       id  c1_1   c2a   c2b   c2c   c2d   c2e c17_1hensa  c15a
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;
@@ -256,9 +330,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="dtaデータの読み込み" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> dtaデータの読み込み</h2>
 <p>Stataで用いられている<code>dta</code>データを読み込むには<code>read_dta</code>を用いる．</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="data.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb13-2"><a href="data.html#cb13-2" aria-hidden="true" tabindex="-1"></a>d_dta <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;data/example_1.dta&quot;</span>)</span>
-<span id="cb13-3"><a href="data.html#cb13-3" aria-hidden="true" tabindex="-1"></a>d_dta</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="data.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb134-2"><a href="data.html#cb134-2" aria-hidden="true" tabindex="-1"></a>d_dta <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;data/example_1.dta&quot;</span>)</span>
+<span id="cb134-3"><a href="data.html#cb134-3" aria-hidden="true" tabindex="-1"></a>d_dta</span></code></pre></div>
 <pre><code>## # A tibble: 1,854 × 9
 ##       id      c1_1      c2a      c2b      c2c     c2d     c2e c17_1hensa    c15a
 ##    &lt;dbl&gt; &lt;dbl+lbl&gt; &lt;dbl+lb&gt; &lt;dbl+lb&gt; &lt;dbl+lb&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;  &lt;dbl+lbl&gt; &lt;dbl+l&gt;
@@ -275,9 +349,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 1,844 more rows</code></pre>
 <p>ラベルがあるがそれを除きたければ<code>zap_label</code>と<code>zap_labels</code>を用いる．
 個人的にはラベルは無いほうがよいと考えている（基本はコードブックなどで確認すべきこと）ので，削除する．</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data.html#cb15-1" aria-hidden="true" tabindex="-1"></a>d_dta <span class="ot">&lt;-</span> d_dta <span class="sc">%&gt;%</span> <span class="fu">zap_label</span>()</span>
-<span id="cb15-2"><a href="data.html#cb15-2" aria-hidden="true" tabindex="-1"></a>d_dta <span class="ot">&lt;-</span> d_dta <span class="sc">%&gt;%</span> <span class="fu">zap_labels</span>()</span>
-<span id="cb15-3"><a href="data.html#cb15-3" aria-hidden="true" tabindex="-1"></a>d_dta</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="data.html#cb136-1" aria-hidden="true" tabindex="-1"></a>d_dta <span class="ot">&lt;-</span> d_dta <span class="sc">%&gt;%</span> <span class="fu">zap_label</span>()</span>
+<span id="cb136-2"><a href="data.html#cb136-2" aria-hidden="true" tabindex="-1"></a>d_dta <span class="ot">&lt;-</span> d_dta <span class="sc">%&gt;%</span> <span class="fu">zap_labels</span>()</span>
+<span id="cb136-3"><a href="data.html#cb136-3" aria-hidden="true" tabindex="-1"></a>d_dta</span></code></pre></div>
 <pre><code>## # A tibble: 1,854 × 9
 ##       id  c1_1   c2a   c2b   c2c   c2d   c2e c17_1hensa  c15a
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;
@@ -300,8 +374,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="function.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="function.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="basicstatistics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -355,6 +429,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
