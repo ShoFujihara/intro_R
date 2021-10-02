@@ -24,7 +24,7 @@
 <meta name="author" content="藤原翔" />
 
 
-<meta name="date" content="2021-10-02" />
+<meta name="date" content="2021-10-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -196,11 +196,11 @@ div.csl-indent {
 <li class="chapter" data-level="3.7.1" data-path="basic.html"><a href="basic.html#データフレイム-1"><i class="fa fa-check"></i><b>3.7.1</b> データフレイム</a></li>
 <li class="chapter" data-level="3.7.2" data-path="basic.html"><a href="basic.html#tibble形式のデータフレイム"><i class="fa fa-check"></i><b>3.7.2</b> tibble形式のデータフレイム</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="basic.html"><a href="basic.html#ヘルプを活用する"><i class="fa fa-check"></i><b>3.8</b> ヘルプを活用する</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="function.html"><a href="function.html"><i class="fa fa-check"></i><b>4</b> 関数</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="function.html"><a href="function.html#ヘルプ"><i class="fa fa-check"></i><b>4.1</b> ヘルプ</a></li>
+<li class="chapter" data-level="4.2" data-path="function.html"><a href="function.html#わからないことがあったら"><i class="fa fa-check"></i><b>4.2</b> わからないことがあったら</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>5</b> データの読み込み</a>
 <ul>
@@ -270,50 +270,50 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="DAG" class="section level1" number="9">
 <h1><span class="header-section-number">9</span> 有向非巡回グラフ（DAG）</h1>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="DAG.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dagitty)</span>
-<span id="cb169-2"><a href="DAG.html#cb169-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="DAG.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dagitty)</span>
+<span id="cb191-2"><a href="DAG.html#cb191-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span></code></pre></div>
 <pre><code>## This is lavaan 0.6-9
 ## lavaan is FREE software! Please report any bugs.</code></pre>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="DAG.html#cb171-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">&#39;dag{</span></span>
-<span id="cb171-2"><a href="DAG.html#cb171-2" aria-hidden="true" tabindex="-1"></a><span class="st">  x [pos=&quot;0,1&quot;]</span></span>
-<span id="cb171-3"><a href="DAG.html#cb171-3" aria-hidden="true" tabindex="-1"></a><span class="st">  y [pos=&quot;1,1&quot;]</span></span>
-<span id="cb171-4"><a href="DAG.html#cb171-4" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; y</span></span>
-<span id="cb171-5"><a href="DAG.html#cb171-5" aria-hidden="true" tabindex="-1"></a><span class="st"> }&#39;</span>)</span>
-<span id="cb171-6"><a href="DAG.html#cb171-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="DAG.html#cb193-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">&#39;dag{</span></span>
+<span id="cb193-2"><a href="DAG.html#cb193-2" aria-hidden="true" tabindex="-1"></a><span class="st">  x [pos=&quot;0,1&quot;]</span></span>
+<span id="cb193-3"><a href="DAG.html#cb193-3" aria-hidden="true" tabindex="-1"></a><span class="st">  y [pos=&quot;1,1&quot;]</span></span>
+<span id="cb193-4"><a href="DAG.html#cb193-4" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; y</span></span>
+<span id="cb193-5"><a href="DAG.html#cb193-5" aria-hidden="true" tabindex="-1"></a><span class="st"> }&#39;</span>)</span>
+<span id="cb193-6"><a href="DAG.html#cb193-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g)</span></code></pre></div>
 <p><img src="08-DAG_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <div id="confounder" class="section level2" number="9.1">
 <h2><span class="header-section-number">9.1</span> Confounder</h2>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="DAG.html#cb172-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">&#39;dag{</span></span>
-<span id="cb172-2"><a href="DAG.html#cb172-2" aria-hidden="true" tabindex="-1"></a><span class="st">  x [pos=&quot;0,1&quot;]</span></span>
-<span id="cb172-3"><a href="DAG.html#cb172-3" aria-hidden="true" tabindex="-1"></a><span class="st">  y [pos=&quot;1,1&quot;]</span></span>
-<span id="cb172-4"><a href="DAG.html#cb172-4" aria-hidden="true" tabindex="-1"></a><span class="st">  z [pos=&quot;0.5,0&quot;]</span></span>
-<span id="cb172-5"><a href="DAG.html#cb172-5" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; y ; x &lt;- z -&gt; y</span></span>
-<span id="cb172-6"><a href="DAG.html#cb172-6" aria-hidden="true" tabindex="-1"></a><span class="st">  }&#39;</span>)</span>
-<span id="cb172-7"><a href="DAG.html#cb172-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g)</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="DAG.html#cb194-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">&#39;dag{</span></span>
+<span id="cb194-2"><a href="DAG.html#cb194-2" aria-hidden="true" tabindex="-1"></a><span class="st">  x [pos=&quot;0,1&quot;]</span></span>
+<span id="cb194-3"><a href="DAG.html#cb194-3" aria-hidden="true" tabindex="-1"></a><span class="st">  y [pos=&quot;1,1&quot;]</span></span>
+<span id="cb194-4"><a href="DAG.html#cb194-4" aria-hidden="true" tabindex="-1"></a><span class="st">  z [pos=&quot;0.5,0&quot;]</span></span>
+<span id="cb194-5"><a href="DAG.html#cb194-5" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; y ; x &lt;- z -&gt; y</span></span>
+<span id="cb194-6"><a href="DAG.html#cb194-6" aria-hidden="true" tabindex="-1"></a><span class="st">  }&#39;</span>)</span>
+<span id="cb194-7"><a href="DAG.html#cb194-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g)</span></code></pre></div>
 <p><img src="08-DAG_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <div id="mediator" class="section level2" number="9.2">
 <h2><span class="header-section-number">9.2</span> Mediator</h2>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="DAG.html#cb173-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">&#39;dag{</span></span>
-<span id="cb173-2"><a href="DAG.html#cb173-2" aria-hidden="true" tabindex="-1"></a><span class="st">  x [pos=&quot;0,1&quot;]</span></span>
-<span id="cb173-3"><a href="DAG.html#cb173-3" aria-hidden="true" tabindex="-1"></a><span class="st">  y [pos=&quot;1,1&quot;]</span></span>
-<span id="cb173-4"><a href="DAG.html#cb173-4" aria-hidden="true" tabindex="-1"></a><span class="st">  z [pos=&quot;0.5,0&quot;]</span></span>
-<span id="cb173-5"><a href="DAG.html#cb173-5" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; y;</span></span>
-<span id="cb173-6"><a href="DAG.html#cb173-6" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; z -&gt; y</span></span>
-<span id="cb173-7"><a href="DAG.html#cb173-7" aria-hidden="true" tabindex="-1"></a><span class="st">  }&#39;</span>)</span>
-<span id="cb173-8"><a href="DAG.html#cb173-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g)</span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="DAG.html#cb195-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">&#39;dag{</span></span>
+<span id="cb195-2"><a href="DAG.html#cb195-2" aria-hidden="true" tabindex="-1"></a><span class="st">  x [pos=&quot;0,1&quot;]</span></span>
+<span id="cb195-3"><a href="DAG.html#cb195-3" aria-hidden="true" tabindex="-1"></a><span class="st">  y [pos=&quot;1,1&quot;]</span></span>
+<span id="cb195-4"><a href="DAG.html#cb195-4" aria-hidden="true" tabindex="-1"></a><span class="st">  z [pos=&quot;0.5,0&quot;]</span></span>
+<span id="cb195-5"><a href="DAG.html#cb195-5" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; y;</span></span>
+<span id="cb195-6"><a href="DAG.html#cb195-6" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; z -&gt; y</span></span>
+<span id="cb195-7"><a href="DAG.html#cb195-7" aria-hidden="true" tabindex="-1"></a><span class="st">  }&#39;</span>)</span>
+<span id="cb195-8"><a href="DAG.html#cb195-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g)</span></code></pre></div>
 <p><img src="08-DAG_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 <div id="collidar" class="section level2" number="9.3">
 <h2><span class="header-section-number">9.3</span> Collidar</h2>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="DAG.html#cb174-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">&#39;dag{</span></span>
-<span id="cb174-2"><a href="DAG.html#cb174-2" aria-hidden="true" tabindex="-1"></a><span class="st">  x [pos=&quot;0,1&quot;]</span></span>
-<span id="cb174-3"><a href="DAG.html#cb174-3" aria-hidden="true" tabindex="-1"></a><span class="st">  y [pos=&quot;1,1&quot;]</span></span>
-<span id="cb174-4"><a href="DAG.html#cb174-4" aria-hidden="true" tabindex="-1"></a><span class="st">  z [pos=&quot;0.5,0&quot;]</span></span>
-<span id="cb174-5"><a href="DAG.html#cb174-5" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; y;</span></span>
-<span id="cb174-6"><a href="DAG.html#cb174-6" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; z &lt;- y</span></span>
-<span id="cb174-7"><a href="DAG.html#cb174-7" aria-hidden="true" tabindex="-1"></a><span class="st">  }&#39;</span>)</span>
-<span id="cb174-8"><a href="DAG.html#cb174-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g)</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="DAG.html#cb196-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">&#39;dag{</span></span>
+<span id="cb196-2"><a href="DAG.html#cb196-2" aria-hidden="true" tabindex="-1"></a><span class="st">  x [pos=&quot;0,1&quot;]</span></span>
+<span id="cb196-3"><a href="DAG.html#cb196-3" aria-hidden="true" tabindex="-1"></a><span class="st">  y [pos=&quot;1,1&quot;]</span></span>
+<span id="cb196-4"><a href="DAG.html#cb196-4" aria-hidden="true" tabindex="-1"></a><span class="st">  z [pos=&quot;0.5,0&quot;]</span></span>
+<span id="cb196-5"><a href="DAG.html#cb196-5" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; y;</span></span>
+<span id="cb196-6"><a href="DAG.html#cb196-6" aria-hidden="true" tabindex="-1"></a><span class="st">  x -&gt; z &lt;- y</span></span>
+<span id="cb196-7"><a href="DAG.html#cb196-7" aria-hidden="true" tabindex="-1"></a><span class="st">  }&#39;</span>)</span>
+<span id="cb196-8"><a href="DAG.html#cb196-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g)</span></code></pre></div>
 <p><img src="08-DAG_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 
 </div>

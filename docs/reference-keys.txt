@@ -1,4 +1,4 @@
-bookdowngitbook-default
+はじめに
 内容予定
 install
 rのインストール
@@ -24,9 +24,9 @@ basic
 データフレイム
 データフレイム-1
 tibble形式のデータフレイム
-ヘルプを活用する
 function
 ヘルプ
+わからないことがあったら
 data
 csvデータの読み込み
 xlsxデータの読み込み

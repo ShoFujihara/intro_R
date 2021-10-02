@@ -194,19 +194,5 @@ df_tbl
 
 
 
-## ヘルプを活用する
-
-```{r, eval = FALSE}
-?seq
-```
-
-`example()`を使えば，ヘルプのExamplesにあるコードが実行される．
-
-
-```{r}
-example(seq)
-```
-
-
 
 

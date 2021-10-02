@@ -9,8 +9,8 @@ knitr::include_graphics("figures/R_1.png")
 ```
 
 ### ダウンロード
-- Macの場合は`Download R for (Mac) OS X`をクリックし，一番上にある`R-4.0.3.pkg (notarized and signed)`をクリックし`R-4.0.3.pkg`をダウンロードする．
-- Windowsの場合は`Download R for Windows`をクリックし，一番上の`base`をクリックし，次の画面の`Download R 4.0.3 for Windows (85 megabytes, 32/64 bit)`をクリックして`R-4.0.3-win.exe`をダウンロードする．
+- Macの場合は`Download R for (Mac) OS X`をクリックし，一番上にある`R-4.1.1.pkg (notarized and signed)`をクリックし`R-4.1.1.pkg`をダウンロードする．
+- Windowsの場合は`Download R for Windows`をクリックし，一番上の`base`をクリックし，次の画面の`Download R 4.1.1 for Windows (85 megabytes, 32/64 bit)`をクリックして`R-4.1.1-win.exe`をダウンロードする．
 - ダウンロードされたらファイルを実行してインストールする．
 - 基本的には「OK」と「次へ」を選択する．ただしWindowsの場合，インストール先は日本語が含まれないようなフォルダやOnedrive等以外の場所に設定して下さい．
 
@@ -58,8 +58,8 @@ knitr::include_graphics("figures/R_4.png")
 
 - RStudio DesktopのFreeを探して，DOWNLOADする．
 - https://rstudio.com/products/rstudio/download/#download
-- MACの場合は`RStudio-1.3.1093.dmg`
-- Windowsの場合は`RStudio-1.3.1093.exe`
+- MACの場合は`RStudio-2021.09.0-351.dmg`
+- Windowsの場合は`RStudio-2021.09.0-351.exe`
 
 ### RStudioの起動
 - RStudioを起動する．
@@ -112,7 +112,7 @@ library(tidyverse)
 
 >>エラー: package or namespace load failed for 'tidyverse' in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]):
 
-- 古いバージョンのRやRStudioがインストールされている可能性があります．`R.Version()`とコンソールに入力したときに，下の方に`R version 4.0.3 (2020-10-10)`と表示されるか確認してみましょう．
+- 古いバージョンのRやRStudioがインストールされている可能性があります．`R.Version()`とコンソールに入力したときに，下の方に`R version 4.1.1 (2020-10-10)`と表示されるか確認してみましょう．
 
 >>OneDrive/????/ といったようなエラーがでる．
 

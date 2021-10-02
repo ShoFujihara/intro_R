@@ -24,7 +24,7 @@
 <meta name="author" content="藤原翔" />
 
 
-<meta name="date" content="2021-10-02" />
+<meta name="date" content="2021-10-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -196,11 +196,11 @@ div.csl-indent {
 <li class="chapter" data-level="3.7.1" data-path="basic.html"><a href="basic.html#データフレイム-1"><i class="fa fa-check"></i><b>3.7.1</b> データフレイム</a></li>
 <li class="chapter" data-level="3.7.2" data-path="basic.html"><a href="basic.html#tibble形式のデータフレイム"><i class="fa fa-check"></i><b>3.7.2</b> tibble形式のデータフレイム</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="basic.html"><a href="basic.html#ヘルプを活用する"><i class="fa fa-check"></i><b>3.8</b> ヘルプを活用する</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="function.html"><a href="function.html"><i class="fa fa-check"></i><b>4</b> 関数</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="function.html"><a href="function.html#ヘルプ"><i class="fa fa-check"></i><b>4.1</b> ヘルプ</a></li>
+<li class="chapter" data-level="4.2" data-path="function.html"><a href="function.html#わからないことがあったら"><i class="fa fa-check"></i><b>4.2</b> わからないことがあったら</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>5</b> データの読み込み</a>
 <ul>
@@ -271,50 +271,83 @@ div.csl-indent {
 <div id="function" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> 関数</h1>
 <p>Rには様々な関数が用意されている．ここでは，1つの数値についての関数を紹介する．基本的には，<code>関数名(数値)</code>という形になる．<code>関数名(数値,オプション)</code>という形で，オプションを指定することも可能である．</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="function.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 平方根</span></span>
-<span id="cb97-2"><a href="function.html#cb97-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="function.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 平方根</span></span>
+<span id="cb94-2"><a href="function.html#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">8</span>)</span></code></pre></div>
 <pre><code>## [1] 2.828427</code></pre>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="function.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 自然対数</span></span>
-<span id="cb99-2"><a href="function.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="function.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 自然対数</span></span>
+<span id="cb96-2"><a href="function.html#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">8</span>)</span></code></pre></div>
 <pre><code>## [1] 2.079442</code></pre>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="function.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 底が2の対数</span></span>
-<span id="cb101-2"><a href="function.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">8</span>, <span class="at">base =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="function.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 底が2の対数</span></span>
+<span id="cb98-2"><a href="function.html#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">8</span>, <span class="at">base =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>オブジェクトに対して関数を適用することも可能である．</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="function.html#cb103-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">8</span></span>
-<span id="cb103-2"><a href="function.html#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 平方根</span></span>
-<span id="cb103-3"><a href="function.html#cb103-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="function.html#cb100-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">8</span></span>
+<span id="cb100-2"><a href="function.html#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 平方根</span></span>
+<span id="cb100-3"><a href="function.html#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(a)</span></code></pre></div>
 <pre><code>## [1] 2.828427</code></pre>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="function.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 自然対数</span></span>
-<span id="cb105-2"><a href="function.html#cb105-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="function.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 自然対数</span></span>
+<span id="cb102-2"><a href="function.html#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(a)</span></code></pre></div>
 <pre><code>## [1] 2.079442</code></pre>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="function.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 底が2の対数</span></span>
-<span id="cb107-2"><a href="function.html#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(a, <span class="at">base =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="function.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 底が2の対数</span></span>
+<span id="cb104-2"><a href="function.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(a, <span class="at">base =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="function.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 常用対数</span></span>
-<span id="cb109-2"><a href="function.html#cb109-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1000</span>, <span class="at">base =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="function.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 常用対数</span></span>
+<span id="cb106-2"><a href="function.html#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1000</span>, <span class="at">base =</span> <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="function.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log10</span>(<span class="dv">1000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="function.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log10</span>(<span class="dv">1000</span>)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="function.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 指数関数</span></span>
-<span id="cb113-2"><a href="function.html#cb113-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="function.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 指数関数</span></span>
+<span id="cb110-2"><a href="function.html#cb110-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 7.389056</code></pre>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="function.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 絶対値</span></span>
-<span id="cb115-2"><a href="function.html#cb115-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abs</span>(<span class="sc">-</span><span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="function.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 絶対値</span></span>
+<span id="cb112-2"><a href="function.html#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abs</span>(<span class="sc">-</span><span class="dv">100</span>)</span></code></pre></div>
 <pre><code>## [1] 100</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="function.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 値を丸める</span></span>
-<span id="cb117-2"><a href="function.html#cb117-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.14159265</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="function.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 値を丸める</span></span>
+<span id="cb114-2"><a href="function.html#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.14159265</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 3.14</code></pre>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="function.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 整数部分だけ</span></span>
-<span id="cb119-2"><a href="function.html#cb119-2" aria-hidden="true" tabindex="-1"></a><span class="fu">trunc</span>(<span class="fl">1.999</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="function.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 整数部分だけ</span></span>
+<span id="cb116-2"><a href="function.html#cb116-2" aria-hidden="true" tabindex="-1"></a><span class="fu">trunc</span>(<span class="fl">1.999</span>)</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <div id="ヘルプ" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> ヘルプ</h2>
 <p>関数の前に<code>?</code>をつけて実行．これはコンソール上で行えばよい．<code>?rep</code>や<code>?seq</code>とする．どのような引数（コマンドを実行する時に代入される値）があるのか，どのようなオプションをつけられるのかが分かる．ヘルプの一番下にはExamplesがあることが多いので，それをコピペして意味を理解してみよう．</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="function.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="co"># repについて知りたい</span></span>
-<span id="cb121-2"><a href="function.html#cb121-2" aria-hidden="true" tabindex="-1"></a>?rep</span>
-<span id="cb121-3"><a href="function.html#cb121-3" aria-hidden="true" tabindex="-1"></a><span class="co"># seqについてもっと知りたい</span></span>
-<span id="cb121-4"><a href="function.html#cb121-4" aria-hidden="true" tabindex="-1"></a>?seq</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="function.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="co"># repについて知りたい</span></span>
+<span id="cb118-2"><a href="function.html#cb118-2" aria-hidden="true" tabindex="-1"></a>?rep</span>
+<span id="cb118-3"><a href="function.html#cb118-3" aria-hidden="true" tabindex="-1"></a><span class="co"># seqについてもっと知りたい</span></span>
+<span id="cb118-4"><a href="function.html#cb118-4" aria-hidden="true" tabindex="-1"></a>?seq</span></code></pre></div>
+<p><code>example()</code>を使えば，ヘルプのExamplesにあるコードが実行される．</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="function.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">example</span>(seq)</span></code></pre></div>
+<pre><code>## 
+## seq&gt; seq(0, 1, length.out = 11)
+##  [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+## 
+## seq&gt; seq(stats::rnorm(20)) # effectively &#39;along&#39;
+##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
+## 
+## seq&gt; seq(1, 9, by = 2)     # matches &#39;end&#39;
+## [1] 1 3 5 7 9
+## 
+## seq&gt; seq(1, 9, by = pi)    # stays below &#39;end&#39;
+## [1] 1.000000 4.141593 7.283185
+## 
+## seq&gt; seq(1, 6, by = 3)
+## [1] 1 4
+## 
+## seq&gt; seq(1.575, 5.125, by = 0.05)
+##  [1] 1.575 1.625 1.675 1.725 1.775 1.825 1.875 1.925 1.975 2.025 2.075 2.125
+## [13] 2.175 2.225 2.275 2.325 2.375 2.425 2.475 2.525 2.575 2.625 2.675 2.725
+## [25] 2.775 2.825 2.875 2.925 2.975 3.025 3.075 3.125 3.175 3.225 3.275 3.325
+## [37] 3.375 3.425 3.475 3.525 3.575 3.625 3.675 3.725 3.775 3.825 3.875 3.925
+## [49] 3.975 4.025 4.075 4.125 4.175 4.225 4.275 4.325 4.375 4.425 4.475 4.525
+## [61] 4.575 4.625 4.675 4.725 4.775 4.825 4.875 4.925 4.975 5.025 5.075 5.125
+## 
+## seq&gt; seq(17) # same as 1:17, or even better seq_len(17)
+##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17</code></pre>
+<p><code>## Not run:</code>と<code>## End(Not run)</code>のあいだのコードは無視されるが，これらも実行したいのであれば，<code>run.dontrun = TRUE</code>とする．</p>
+</div>
+<div id="わからないことがあったら" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> わからないことがあったら</h2>
+<p>もしエラーがでたらそれを貼り付けて<code>"エラーの内容"</code>で囲ってgoogleなどで検索するとよい．あなたと同じエラーが出て困っている人がすでに誰かに相談し，解決策が示されている可能性がある．</p>
 
 </div>
 </div>
