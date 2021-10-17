@@ -1,7 +1,8 @@
 # データの読み込み {#data}
 
 
-## csvデータの読み込み
+## 様々な形式のデータの読み込み
+### csvデータの読み込み
 
 `read_csv()`を用いる．`read.csv`でも可能．
 
@@ -12,22 +13,21 @@ d_csv
 ```
 
 
-## xlsxデータの読み込み
+### xlsxデータの読み込み
 
 xlsxデータを読み込む．
 
 ```{r}
 library(readxl)
-d_xlsx <- read_xlsx("data/example_1.xlsx")
-d_xlsx
+d_excel <- read_excel("data/example_1.xlsx")
+d_excel
 ```
 
 
+### dtaデータの読み込み
 
-
-## dtaデータの読み込み
-
-Stataで用いられている`dta`データを読み込むには`read_dta`を用いる．
+Stataで用いられている`dta`データを読み込むには`haven`パッケージの`read_dta`を用いる．
+SPSSの場合は`read_sav`，SASの場合は`read_sas`を使えばよい．
 
 ```{r}
 library(haven)
@@ -35,9 +35,9 @@ d_dta <- read_dta("data/example_1.dta")
 d_dta
 ```
 
+### 変数ラベルと値ラベルの削除
 
-ラベルがあるがそれを除きたければ`zap_label`と`zap_labels`を用いる．
-個人的にはラベルは無いほうがよいと考えている（基本はコードブックなどで確認すべきこと）ので，削除する．
+もともとのデータセットに変数ラベルや値ラベルがある場合があるが，それらを除きたければ`zap_label`と`zap_labels`を用いる．個人的にはラベルは無いほうがよいと考えている（基本はコードブックなどで確認すべきこと）ので，削除する．
 
 ```{r}
 d_dta <- d_dta %>% zap_label()
@@ -45,14 +45,38 @@ d_dta <- d_dta %>% zap_labels()
 d_dta
 ```
 
+## データの確認
+
 
 ```{r}
-summary(d_dta)
+d <- read_csv("data/example_1.csv")
+d
+```
+
+ケースと変数の数を確認
+
+```{r}
+dim(d)
+```
+
+変数名の確認
+```{r}
+names(d)
 ```
 
 
 ```{r}
-table(d_dta$c1_1)
+summary(d)
+```
+
+```{r}
+library(skimr)
+skim(d)
+```
+
+
+```{r}
+table(d$c1_1)
 ```
 
 ```{r}
@@ -60,6 +84,101 @@ library(janitor)
 
 tabyl(d_dta, c1_1)
 ```
+
+
+## データの加工と集計
+
+データの加工と集計で主に使用するのは次の関数である．
+
+
+```{r}
+関数 <- c("select", "filter", "drop_na", "mutate", "summarise", "group_by","ungroup")
+目的 <- c("変数を選択", "ケースを選択", "欠損値の削除", "変数の追加", "データの要約","グループ別の処理","グループ化の解除")
+例 <- c("`d %>% select(var1, var2)`",
+       "`d %>% filter(var1 >= 5)`",
+       "`d %>% drop_na(var1, var2)`",
+       "`d <- d %>% mutate(var3 = var1 + var2)`",
+       "`d %>% summarise(Mean = mean(var1))`",
+       "`d %>% group_by(group) %>% summarise(Median = median(var1))`",
+       "`d %>% group_by(group) %>% summarise(Median = median(var1)) %>% ungroup()`")
+tibble(関数,目的,例) %>% 
+  knitr::kable()
+```
+
+
+### 変数を選択する
+
+```{r}
+d %>% select(id, c1_1)
+```
+
+
+`c2`を含む変数を選択する場合には`contains`を用いる．
+ 
+```{r}
+d %>% select(id, contains("c2"))
+```
+
+
+```{r}
+関数 <- c("starts_with",
+        "ends_with",
+        "contains",
+        "matches",
+        "num_range")
+
+一致 <- c("変数名の始まりが一致",
+        "変数名の終わりが一致",
+        "変数名の文字が一致",
+        "正規表現で一致",
+        "q01,q02,...のように一致")
+
+tibble(関数,一致) %>% 
+  knitr::kable()
+```
+
+
+```{r}
+d %>% select(starts_with("c2"))
+```
+
+```{r}
+d %>% select(ends_with("a"))
+```
+
+```{r}
+d %>% select(matches("[ia]"))
+```
+
+
+### ケースを選択
+
+```{r}
+d %>% filter(c1_1 == 1)
+d %>% filter(c1_1 != 1)
+d %>% filter(c2a %in% c(1,2,3))
+d %>% filter(!c2a %in% c(1,2,3))
+```
+
+### 欠損値の削除
+
+```{r}
+d %>%
+  drop_na(c2a)
+```
+
+### 変数の追加
+
+```{r}
+d <- d %>% 
+  mutate(random = runif(n = nrow(d)))
+```
+
+### データの要約
+
+### グループ別の処理
+
+### グループ化の解除
 
 
 
