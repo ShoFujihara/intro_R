@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 RとRStudioのインストール | 社会調査のためのR入門</title>
   <meta name="description" content="2 RとRStudioのインストール | 社会調査のためのR入門" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 RとRStudioのインストール | 社会調査のためのR入門" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -24,7 +23,7 @@
 <meta name="author" content="藤原翔" />
 
 
-<meta name="date" content="2021-10-03" />
+<meta name="date" content="2022-02-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="basic.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -93,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -106,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -120,28 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -159,7 +136,7 @@ div.csl-indent {
 <li><a href="./">社会調査のためのR入門</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> はじめに</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> bookdown::gitbook: default</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#内容予定"><i class="fa fa-check"></i><b>1.1</b> 内容（予定）</a></li>
 </ul></li>
@@ -204,9 +181,24 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>5</b> データの読み込み</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="data.html"><a href="data.html#csvデータの読み込み"><i class="fa fa-check"></i><b>5.1</b> csvデータの読み込み</a></li>
-<li class="chapter" data-level="5.2" data-path="data.html"><a href="data.html#xlsxデータの読み込み"><i class="fa fa-check"></i><b>5.2</b> xlsxデータの読み込み</a></li>
-<li class="chapter" data-level="5.3" data-path="data.html"><a href="data.html#dtaデータの読み込み"><i class="fa fa-check"></i><b>5.3</b> dtaデータの読み込み</a></li>
+<li class="chapter" data-level="5.1" data-path="data.html"><a href="data.html#様々な形式のデータの読み込み"><i class="fa fa-check"></i><b>5.1</b> 様々な形式のデータの読み込み</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="data.html"><a href="data.html#csvデータの読み込み"><i class="fa fa-check"></i><b>5.1.1</b> csvデータの読み込み</a></li>
+<li class="chapter" data-level="5.1.2" data-path="data.html"><a href="data.html#xlsxデータの読み込み"><i class="fa fa-check"></i><b>5.1.2</b> xlsxデータの読み込み</a></li>
+<li class="chapter" data-level="5.1.3" data-path="data.html"><a href="data.html#dtaデータの読み込み"><i class="fa fa-check"></i><b>5.1.3</b> dtaデータの読み込み</a></li>
+<li class="chapter" data-level="5.1.4" data-path="data.html"><a href="data.html#変数ラベルと値ラベルの削除"><i class="fa fa-check"></i><b>5.1.4</b> 変数ラベルと値ラベルの削除</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="data.html"><a href="data.html#データの確認"><i class="fa fa-check"></i><b>5.2</b> データの確認</a></li>
+<li class="chapter" data-level="5.3" data-path="data.html"><a href="data.html#データの加工と集計"><i class="fa fa-check"></i><b>5.3</b> データの加工と集計</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="data.html"><a href="data.html#変数を選択する"><i class="fa fa-check"></i><b>5.3.1</b> 変数を選択する</a></li>
+<li class="chapter" data-level="5.3.2" data-path="data.html"><a href="data.html#ケースを選択"><i class="fa fa-check"></i><b>5.3.2</b> ケースを選択</a></li>
+<li class="chapter" data-level="5.3.3" data-path="data.html"><a href="data.html#欠損値の削除"><i class="fa fa-check"></i><b>5.3.3</b> 欠損値の削除</a></li>
+<li class="chapter" data-level="5.3.4" data-path="data.html"><a href="data.html#変数の追加"><i class="fa fa-check"></i><b>5.3.4</b> 変数の追加</a></li>
+<li class="chapter" data-level="5.3.5" data-path="data.html"><a href="data.html#データの要約"><i class="fa fa-check"></i><b>5.3.5</b> データの要約</a></li>
+<li class="chapter" data-level="5.3.6" data-path="data.html"><a href="data.html#グループ別の処理"><i class="fa fa-check"></i><b>5.3.6</b> グループ別の処理</a></li>
+<li class="chapter" data-level="5.3.7" data-path="data.html"><a href="data.html#グループ化の解除"><i class="fa fa-check"></i><b>5.3.7</b> グループ化の解除</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="basicstatistics.html"><a href="basicstatistics.html"><i class="fa fa-check"></i><b>6</b> 基本的な統計</a></li>
 <li class="chapter" data-level="7" data-path="vizualization.html"><a href="vizualization.html"><i class="fa fa-check"></i><b>7</b> データの視覚化</a>
@@ -268,16 +260,16 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="install" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> RとRStudioのインストール</h1>
-<div id="rのインストール" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Rのインストール</h2>
+<div id="install" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> RとRStudioのインストール<a href="install.html#install" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="rのインストール" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Rのインストール<a href="install.html#rのインストール" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a></li>
 </ul>
 <p><img src="figures/R_1.png" width="70%" /></p>
-<div id="ダウンロード" class="section level3" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> ダウンロード</h3>
+<div id="ダウンロード" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> ダウンロード<a href="install.html#ダウンロード" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Macの場合は<code>Download R for (Mac) OS X</code>をクリックし，一番上にある<code>R-4.1.1.pkg (notarized and signed)</code>をクリックし<code>R-4.1.1.pkg</code>をダウンロードする．</li>
 <li>Windowsの場合は<code>Download R for Windows</code>をクリックし，一番上の<code>base</code>をクリックし，次の画面の<code>Download R 4.1.1 for Windows (85 megabytes, 32/64 bit)</code>をクリックして<code>R-4.1.1-win.exe</code>をダウンロードする．</li>
@@ -286,24 +278,24 @@ div.csl-indent {
 </ul>
 <p><img src="figures/R_2.png" width="70%" /></p>
 </div>
-<div id="mac" class="section level3" number="2.1.2">
-<h3><span class="header-section-number">2.1.2</span> MAC</h3>
+<div id="mac" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> MAC<a href="install.html#mac" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="figures/R_mac.png" width="50%" /></p>
 </div>
-<div id="windows" class="section level3" number="2.1.3">
-<h3><span class="header-section-number">2.1.3</span> Windows</h3>
+<div id="windows" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Windows<a href="install.html#windows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="figures/R_win.png" width="50%" /></p>
 </div>
-<div id="rの起動" class="section level3" number="2.1.4">
-<h3><span class="header-section-number">2.1.4</span> Rの起動</h3>
+<div id="rの起動" class="section level3 hasAnchor" number="2.1.4">
+<h3><span class="header-section-number">2.1.4</span> Rの起動<a href="install.html#rの起動" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Rがインストールされたら次のような画面（コンソール）がでてくる．</li>
 <li>赤字は無視して下さい．</li>
 </ul>
 <p><img src="figures/R_3.png" width="50%" /></p>
 </div>
-<div id="rのテスト" class="section level3" number="2.1.5">
-<h3><span class="header-section-number">2.1.5</span> Rのテスト</h3>
+<div id="rのテスト" class="section level3 hasAnchor" number="2.1.5">
+<h3><span class="header-section-number">2.1.5</span> Rのテスト<a href="install.html#rのテスト" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Rコンソール上に，直接入力してテストしましょう．</li>
 <li><code>&gt;</code>の後に<code>1+2</code>と入力して，Return（Enter）を押してください．</li>
@@ -316,10 +308,10 @@ div.csl-indent {
 </ul>
 </div>
 </div>
-<div id="rstudioのインストール" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> RStudioのインストール</h2>
-<div id="rstudioのダウンロード" class="section level3" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> RStudioのダウンロード</h3>
+<div id="rstudioのインストール" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> RStudioのインストール<a href="install.html#rstudioのインストール" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="rstudioのダウンロード" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> RStudioのダウンロード<a href="install.html#rstudioのダウンロード" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><a href="https://rstudio.com/products/rstudio/" class="uri">https://rstudio.com/products/rstudio/</a></li>
 </ul>
@@ -331,8 +323,8 @@ div.csl-indent {
 <li>Windowsの場合は<code>RStudio-2021.09.0-351.exe</code></li>
 </ul>
 </div>
-<div id="rstudioの起動" class="section level3" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> RStudioの起動</h3>
+<div id="rstudioの起動" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> RStudioの起動<a href="install.html#rstudioの起動" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>RStudioを起動する．</li>
 <li>Windowsの場合は右クリックで，「管理者として実行」とする．</li>
@@ -342,8 +334,8 @@ div.csl-indent {
 <p><img src="figures/R_5.png" width="70%" /></p>
 </div>
 </div>
-<div id="他の参考になるサイト" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> 他の参考になるサイト</h2>
+<div id="他の参考になるサイト" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> 他の参考になるサイト<a href="install.html#他の参考になるサイト" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Windows
 <ul>
@@ -358,8 +350,8 @@ div.csl-indent {
 </ul></li>
 </ul>
 </div>
-<div id="パッケージのインストール" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> パッケージのインストール</h2>
+<div id="パッケージのインストール" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> パッケージのインストール<a href="install.html#パッケージのインストール" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>右下の画面の<strong>Packages</strong>を選択</li>
 <li>すぐ左下の<strong>Install</strong>を選択する</li>
@@ -367,24 +359,26 @@ div.csl-indent {
 </ul>
 <p><img src="figures/R_package.png" width="70%" /></p>
 </div>
-<div id="パッケージの呼び出し" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> パッケージの呼び出し</h2>
+<div id="パッケージの呼び出し" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> パッケージの呼び出し<a href="install.html#パッケージの呼び出し" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>コンソール上に<code>library(tidyverse)</code>と入力し，実行してみましょう．</li>
 <li>以下の様な表示が出ればうまくいっています．</li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="install.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## ─ Attaching packages ──────────────────── tidyverse 1.3.1 ─</code></pre>
-<pre><code>## ✓ tibble  3.1.4     ✓ dplyr   1.0.7
-## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
-## ✓ readr   2.0.1     ✓ forcats 0.5.1
-## ✓ purrr   0.3.4</code></pre>
-<pre><code>## ─ Conflicts ───────────────────── tidyverse_conflicts() ─
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.2     ✔ readr     2.1.4
+## ✔ forcats   1.0.0     ✔ stringr   1.5.0
+## ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+## ✔ purrr     1.0.1     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div id="パッケージインストールの際のトラブル" class="section level2" number="2.6">
-<h2><span class="header-section-number">2.6</span> パッケージインストールの際のトラブル</h2>
+<div id="パッケージインストールの際のトラブル" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> パッケージインストールの際のトラブル<a href="install.html#パッケージインストールの際のトラブル" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>よくあるエラーについては以下の麦山さんのサイトが参考になります．
 <ul>
@@ -482,20 +476,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
