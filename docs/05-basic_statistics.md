@@ -7,20 +7,16 @@ library(tidyverse)
 ```
 
 ```
-## ─ Attaching packages ──────────────────── tidyverse 1.3.1 ─
-```
-
-```
-## ✓ tibble  3.1.4     ✓ dplyr   1.0.7
-## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
-## ✓ readr   2.0.1     ✓ forcats 0.5.1
-## ✓ purrr   0.3.4
-```
-
-```
-## ─ Conflicts ───────────────────── tidyverse_conflicts() ─
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()
+## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.2     ✔ readr     2.1.4
+## ✔ forcats   1.0.0     ✔ stringr   1.5.0
+## ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+## ✔ purrr     1.0.1     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 ```
 
 ```r
@@ -29,15 +25,9 @@ d <- read_csv("data/example_1.csv")
 
 ```
 ## Rows: 1854 Columns: 9
-```
-
-```
-## ─ Column specification ────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## dbl (9): id, c1_1, c2a, c2b, c2c, c2d, c2e, c17_1hensa, c15a
-```
-
-```
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
@@ -61,7 +51,7 @@ d
 ##  8     8     2     2     2     2     3     3       46       3
 ##  9     9     1     1     4     4     5     3       35.5     3
 ## 10    10     2     2     3     3     5     2       46       2
-## # … with 1,844 more rows
+## # ℹ 1,844 more rows
 ```
 
 

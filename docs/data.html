@@ -617,22 +617,23 @@ SPSSの場合は<code>read_sav</code>，SASの場合は<code>read_sas</code>を�
 <div id="データの加工と集計" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> データの加工と集計</h2>
 <p>データの加工と集計で主に使用するのは次の関数である．</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="data.html#cb37-1" aria-hidden="true" tabindex="-1"></a>関数 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;select&quot;</span>, <span class="st">&quot;filter&quot;</span>, <span class="st">&quot;drop_na&quot;</span>, <span class="st">&quot;mutate&quot;</span>, <span class="st">&quot;summarise&quot;</span>, <span class="st">&quot;group_by&quot;</span>,<span class="st">&quot;ungroup&quot;</span>)</span>
-<span id="cb37-2"><a href="data.html#cb37-2" aria-hidden="true" tabindex="-1"></a>目的 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;変数を選択&quot;</span>, <span class="st">&quot;ケースを選択&quot;</span>, <span class="st">&quot;欠損値の削除&quot;</span>, <span class="st">&quot;変数の追加&quot;</span>, <span class="st">&quot;データの要約&quot;</span>,<span class="st">&quot;グループ別の処理&quot;</span>,<span class="st">&quot;グループ化の解除&quot;</span>)</span>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="data.html#cb37-1" aria-hidden="true" tabindex="-1"></a>関数 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;select&quot;</span>, <span class="st">&quot;filter&quot;</span>, <span class="st">&quot;drop_na&quot;</span>, <span class="st">&quot;mutate&quot;</span>, <span class="st">&quot;summarise&quot;</span>, <span class="st">&quot;group_by&quot;</span>,<span class="st">&quot;ungroup&quot;</span>,<span class="st">&quot;pivot_longer&quot;</span>,<span class="st">&quot;pivot_wider&quot;</span>,<span class="st">&quot;separate&quot;</span>)</span>
+<span id="cb37-2"><a href="data.html#cb37-2" aria-hidden="true" tabindex="-1"></a>目的 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;変数を選択&quot;</span>, <span class="st">&quot;ケースを選択&quot;</span>, <span class="st">&quot;欠損値の削除&quot;</span>, <span class="st">&quot;変数の追加&quot;</span>, <span class="st">&quot;データの要約&quot;</span>,<span class="st">&quot;グループ別の処理&quot;</span>,<span class="st">&quot;グループ化の解除&quot;</span>,<span class="st">&quot;データをロング形式にする&quot;</span>,<span class="st">&quot;データをワイド形式にする&quot;</span>,<span class="st">&quot;文字列を複数の列に分離&quot;</span>)</span>
 <span id="cb37-3"><a href="data.html#cb37-3" aria-hidden="true" tabindex="-1"></a>例 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;`d %&gt;% select(var1, var2)`&quot;</span>,</span>
 <span id="cb37-4"><a href="data.html#cb37-4" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;`d %&gt;% filter(var1 &gt;= 5)`&quot;</span>,</span>
 <span id="cb37-5"><a href="data.html#cb37-5" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;`d %&gt;% drop_na(var1, var2)`&quot;</span>,</span>
 <span id="cb37-6"><a href="data.html#cb37-6" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;`d &lt;- d %&gt;% mutate(var3 = var1 + var2)`&quot;</span>,</span>
 <span id="cb37-7"><a href="data.html#cb37-7" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;`d %&gt;% summarise(Mean = mean(var1))`&quot;</span>,</span>
 <span id="cb37-8"><a href="data.html#cb37-8" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;`d %&gt;% group_by(group) %&gt;% summarise(Median = median(var1))`&quot;</span>,</span>
-<span id="cb37-9"><a href="data.html#cb37-9" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;`d %&gt;% group_by(group) %&gt;% summarise(Median = median(var1)) %&gt;% ungroup()`&quot;</span>)</span>
-<span id="cb37-10"><a href="data.html#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(関数,目的,例) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-11"><a href="data.html#cb37-11" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+<span id="cb37-9"><a href="data.html#cb37-9" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;`d %&gt;% group_by(group) %&gt;% summarise(Median = median(var1)) %&gt;% ungroup()`&quot;</span>,</span>
+<span id="cb37-10"><a href="data.html#cb37-10" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;&quot;</span>,<span class="st">&quot;&quot;</span>,<span class="st">&quot;&quot;</span>)</span>
+<span id="cb37-11"><a href="data.html#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(関数,目的,例) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-12"><a href="data.html#cb37-12" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
 <table>
 <colgroup>
-<col width="9%" />
-<col width="16%" />
-<col width="73%" />
+<col width="11%" />
+<col width="22%" />
+<col width="66%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -676,6 +677,21 @@ SPSSの場合は<code>read_sav</code>，SASの場合は<code>read_sas</code>を�
 <td align="left">ungroup</td>
 <td align="left">グループ化の解除</td>
 <td align="left"><code>d %&gt;% group_by(group) %&gt;% summarise(Median = median(var1)) %&gt;% ungroup()</code></td>
+</tr>
+<tr class="even">
+<td align="left">pivot_longer</td>
+<td align="left">データをロング形式にする</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">pivot_wider</td>
+<td align="left">データをワイド形式にする</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">separate</td>
+<td align="left">文字列を複数の列に分離</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -756,7 +772,37 @@ SPSSの場合は<code>read_sav</code>，SASの場合は<code>read_sas</code>を�
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data.html#cb43-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">matches</span>(<span class="st">&quot;[ia]&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data.html#cb43-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;c2&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1,854 × 5
+##      c2a   c2b   c2c   c2d   c2e
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1     2     3     3     3     2
+##  2     1     4     3     5     3
+##  3     2     4     2     5     4
+##  4     3     4     1     5     5
+##  5     1     5     4     5     2
+##  6     1     2     3     5     2
+##  7     2     3     3     5     4
+##  8     2     2     2     3     3
+##  9     1     4     4     5     3
+## 10     2     3     3     5     2
+## # … with 1,844 more rows</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data.html#cb45-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&quot;a&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1,854 × 3
+##      c2a c17_1hensa  c15a
+##    &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;
+##  1     2       68       1
+##  2     1       43       2
+##  3     2       56       3
+##  4     3       39       4
+##  5     1       59       1
+##  6     1       58       2
+##  7     2       41       4
+##  8     2       46       3
+##  9     1       35.5     3
+## 10     2       46       2
+## # … with 1,844 more rows</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data.html#cb47-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">matches</span>(<span class="st">&quot;[ia]&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 1,854 × 4
 ##       id   c2a c17_1hensa  c15a
 ##    &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;
@@ -774,18 +820,182 @@ SPSSの場合は<code>read_sav</code>，SASの場合は<code>read_sas</code>を�
 </div>
 <div id="ケースを選択" class="section level3" number="5.3.2">
 <h3><span class="header-section-number">5.3.2</span> ケースを選択</h3>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data.html#cb49-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> <span class="fu">filter</span>(c1_1 <span class="sc">==</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 912 × 9
+##       id  c1_1   c2a   c2b   c2c   c2d   c2e c17_1hensa  c15a
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;
+##  1     4     1     3     4     1     5     5       39       4
+##  2     7     1     2     3     3     5     4       41       4
+##  3     9     1     1     4     4     5     3       35.5     3
+##  4    11     1     3     2     1    NA     3       40       3
+##  5    12     1     1     4     2     5     2       52       1
+##  6    13     1     1     5     5     5     2       45       3
+##  7    14     1     1     5     4     5     1       61       1
+##  8    16     1     1     2     3     4     2       44       3
+##  9    19     1     1     5     4     5     2       58       1
+## 10    21     1     2     1     1     2     4       68       1
+## # … with 902 more rows</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data.html#cb51-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> <span class="fu">filter</span>(c1_1 <span class="sc">!=</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 942 × 9
+##       id  c1_1   c2a   c2b   c2c   c2d   c2e c17_1hensa  c15a
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;
+##  1     1     2     2     3     3     3     2         68     1
+##  2     2     2     1     4     3     5     3         43     2
+##  3     3     2     2     4     2     5     4         56     3
+##  4     5     2     1     5     4     5     2         59     1
+##  5     6     2     1     2     3     5     2         58     2
+##  6     8     2     2     2     2     3     3         46     3
+##  7    10     2     2     3     3     5     2         46     2
+##  8    15     2     2     4     3     4     3         63     2
+##  9    17     2     3     2     2     3     3         NA     4
+## 10    18     2     1     5     4     5     1         51     2
+## # … with 932 more rows</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data.html#cb53-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> <span class="fu">filter</span>(c2a <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1,726 × 9
+##       id  c1_1   c2a   c2b   c2c   c2d   c2e c17_1hensa  c15a
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;
+##  1     1     2     2     3     3     3     2       68       1
+##  2     2     2     1     4     3     5     3       43       2
+##  3     3     2     2     4     2     5     4       56       3
+##  4     4     1     3     4     1     5     5       39       4
+##  5     5     2     1     5     4     5     2       59       1
+##  6     6     2     1     2     3     5     2       58       2
+##  7     7     1     2     3     3     5     4       41       4
+##  8     8     2     2     2     2     3     3       46       3
+##  9     9     1     1     4     4     5     3       35.5     3
+## 10    10     2     2     3     3     5     2       46       2
+## # … with 1,716 more rows</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="data.html#cb55-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span>c2a <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 128 × 9
+##       id  c1_1   c2a   c2b   c2c   c2d   c2e c17_1hensa  c15a
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;
+##  1    23     1     4     4     1     1     3         NA     5
+##  2    31     2     4     1     1     1     2         45     5
+##  3    36     1     4     2     2     3     4         NA     3
+##  4    52     1     4     2     2     3     3         NA     5
+##  5    60     1     5     5     1     2     1         63     1
+##  6    82     2     4     3     3     3     5         NA     5
+##  7    85     2     4     2     2     3     3         64     2
+##  8    92     2     4     2     3     2     2         38     5
+##  9   130     1     5     2     1     1     3         NA     5
+## 10   138     1     4     4     1     3     4         54     2
+## # … with 118 more rows</code></pre>
 </div>
 <div id="欠損値の削除" class="section level3" number="5.3.3">
 <h3><span class="header-section-number">5.3.3</span> 欠損値の削除</h3>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="data.html#cb57-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span></span>
+<span id="cb57-2"><a href="data.html#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(c2a)</span></code></pre></div>
+<pre><code>## # A tibble: 1,849 × 9
+##       id  c1_1   c2a   c2b   c2c   c2d   c2e c17_1hensa  c15a
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;
+##  1     1     2     2     3     3     3     2       68       1
+##  2     2     2     1     4     3     5     3       43       2
+##  3     3     2     2     4     2     5     4       56       3
+##  4     4     1     3     4     1     5     5       39       4
+##  5     5     2     1     5     4     5     2       59       1
+##  6     6     2     1     2     3     5     2       58       2
+##  7     7     1     2     3     3     5     4       41       4
+##  8     8     2     2     2     2     3     3       46       3
+##  9     9     1     1     4     4     5     3       35.5     3
+## 10    10     2     2     3     3     5     2       46       2
+## # … with 1,839 more rows</code></pre>
 </div>
 <div id="変数の追加" class="section level3" number="5.3.4">
 <h3><span class="header-section-number">5.3.4</span> 変数の追加</h3>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data.html#cb59-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> </span>
+<span id="cb59-2"><a href="data.html#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">random =</span> <span class="fu">runif</span>(<span class="at">n =</span> <span class="fu">nrow</span>(d)))</span>
+<span id="cb59-3"><a href="data.html#cb59-3" aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div>
+<pre><code>## # A tibble: 1,854 × 10
+##       id  c1_1   c2a   c2b   c2c   c2d   c2e c17_1hensa  c15a random
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+##  1     1     2     2     3     3     3     2       68       1  0.487
+##  2     2     2     1     4     3     5     3       43       2  0.311
+##  3     3     2     2     4     2     5     4       56       3  0.499
+##  4     4     1     3     4     1     5     5       39       4  0.557
+##  5     5     2     1     5     4     5     2       59       1  0.660
+##  6     6     2     1     2     3     5     2       58       2  0.334
+##  7     7     1     2     3     3     5     4       41       4  0.744
+##  8     8     2     2     2     2     3     3       46       3  0.129
+##  9     9     1     1     4     4     5     3       35.5     3  0.106
+## 10    10     2     2     3     3     5     2       46       2  0.163
+## # … with 1,844 more rows</code></pre>
+<p>値を反転させた変数を作成する．頭に`re_``をつけている</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data.html#cb61-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span></span>
+<span id="cb61-2"><a href="data.html#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb61-3"><a href="data.html#cb61-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">re_c2a =</span> <span class="dv">6</span> <span class="sc">-</span> c2a,</span>
+<span id="cb61-4"><a href="data.html#cb61-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">re_c2b =</span> <span class="dv">6</span> <span class="sc">-</span> c2b,</span>
+<span id="cb61-5"><a href="data.html#cb61-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">re_c2c =</span> <span class="dv">6</span> <span class="sc">-</span> c2c,</span>
+<span id="cb61-6"><a href="data.html#cb61-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">re_c2d =</span> <span class="dv">6</span> <span class="sc">-</span> c2d,</span>
+<span id="cb61-7"><a href="data.html#cb61-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">re_c2e =</span> <span class="dv">6</span> <span class="sc">-</span> c2e,</span>
+<span id="cb61-8"><a href="data.html#cb61-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">school =</span> re_c2a <span class="sc">+</span> c2b <span class="sc">+</span> c2c <span class="sc">+</span> c2d <span class="sc">+</span> re_c2e,</span>
+<span id="cb61-9"><a href="data.html#cb61-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">school_dev =</span> (school <span class="sc">-</span> <span class="fu">mean</span>(school, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">/</span> <span class="fu">sd</span>(school, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb61-10"><a href="data.html#cb61-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb61-11"><a href="data.html#cb61-11" aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div>
+<pre><code>## # A tibble: 1,854 × 17
+##       id  c1_1   c2a   c2b   c2c   c2d   c2e c17_1hensa  c15a random re_c2a
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+##  1     1     2     2     3     3     3     2       68       1  0.487      4
+##  2     2     2     1     4     3     5     3       43       2  0.311      5
+##  3     3     2     2     4     2     5     4       56       3  0.499      4
+##  4     4     1     3     4     1     5     5       39       4  0.557      3
+##  5     5     2     1     5     4     5     2       59       1  0.660      5
+##  6     6     2     1     2     3     5     2       58       2  0.334      5
+##  7     7     1     2     3     3     5     4       41       4  0.744      4
+##  8     8     2     2     2     2     3     3       46       3  0.129      4
+##  9     9     1     1     4     4     5     3       35.5     3  0.106      5
+## 10    10     2     2     3     3     5     2       46       2  0.163      4
+## # … with 1,844 more rows, and 6 more variables: re_c2b &lt;dbl&gt;, re_c2c &lt;dbl&gt;,
+## #   re_c2d &lt;dbl&gt;, re_c2e &lt;dbl&gt;, school &lt;dbl&gt;, school_dev &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data.html#cb63-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span></span>
+<span id="cb63-2"><a href="data.html#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gender =</span> <span class="fu">case_when</span>(c1_1 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">&quot;Men&quot;</span>,</span>
+<span id="cb63-3"><a href="data.html#cb63-3" aria-hidden="true" tabindex="-1"></a>                            c1_1 <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">&quot;Women&quot;</span>,</span>
+<span id="cb63-4"><a href="data.html#cb63-4" aria-hidden="true" tabindex="-1"></a>                            <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span>))</span></code></pre></div>
 </div>
 <div id="データの要約" class="section level3" number="5.3.5">
 <h3><span class="header-section-number">5.3.5</span> データの要約</h3>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="data.html#cb64-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> </span>
+<span id="cb64-2"><a href="data.html#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_hensa =</span> <span class="fu">mean</span>(c17_1hensa, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb64-3"><a href="data.html#cb64-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_hensa =</span> <span class="fu">median</span>(c17_1hensa, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb64-4"><a href="data.html#cb64-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd_hensa =</span> <span class="fu">sd</span>(c17_1hensa, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 3
+##   mean_hensa median_hensa sd_hensa
+##        &lt;dbl&gt;        &lt;dbl&gt;    &lt;dbl&gt;
+## 1       52.2           52     9.72</code></pre>
 </div>
 <div id="グループ別の処理" class="section level3" number="5.3.6">
 <h3><span class="header-section-number">5.3.6</span> グループ別の処理</h3>
+<p>グループ別に処理して，結果を求める．</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="data.html#cb66-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> </span>
+<span id="cb66-2"><a href="data.html#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span> </span>
+<span id="cb66-3"><a href="data.html#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_school =</span> <span class="fu">mean</span>(school, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
+##   gender mean_school
+##   &lt;chr&gt;        &lt;dbl&gt;
+## 1 Men           17.8
+## 2 Women         18.4</code></pre>
+<p>グループ別に処理して，変数を追加する．ここでは男女別に<code>school</code>を求めて新たな変数<code>school_group_mn</code>を作成している．</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="data.html#cb68-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> </span>
+<span id="cb68-2"><a href="data.html#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span> </span>
+<span id="cb68-3"><a href="data.html#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">school_group_mean =</span> <span class="fu">mean</span>(school, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb68-4"><a href="data.html#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data.html#cb69-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> </span>
+<span id="cb69-2"><a href="data.html#cb69-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">school_group_dev =</span> school <span class="sc">-</span> school_group_mean)</span>
+<span id="cb69-3"><a href="data.html#cb69-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-4"><a href="data.html#cb69-4" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> <span class="fu">select</span>(gender, school, school_group_mean, school_group_dev)</span></code></pre></div>
+<pre><code>## # A tibble: 1,854 × 4
+##    gender school school_group_mean school_group_dev
+##    &lt;chr&gt;   &lt;dbl&gt;             &lt;dbl&gt;            &lt;dbl&gt;
+##  1 Women      17              18.4           -1.39 
+##  2 Women      20              18.4            1.61 
+##  3 Women      17              18.4           -1.39 
+##  4 Men        14              17.8           -3.77 
+##  5 Women      23              18.4            4.61 
+##  6 Women      19              18.4            0.612
+##  7 Men        17              17.8           -0.771
+##  8 Women      14              18.4           -4.39 
+##  9 Men        21              17.8            3.23 
+## 10 Women      19              18.4            0.612
+## # … with 1,844 more rows</code></pre>
 </div>
 <div id="グループ化の解除" class="section level3" number="5.3.7">
 <h3><span class="header-section-number">5.3.7</span> グループ化の解除</h3>

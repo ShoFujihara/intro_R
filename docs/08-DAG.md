@@ -7,7 +7,7 @@ library(lavaan)
 ```
 
 ```
-## This is lavaan 0.6-9
+## This is lavaan 0.6-15
 ## lavaan is FREE software! Please report any bugs.
 ```
 

@@ -1,7 +1,7 @@
 --- 
 title: "社会調査のためのR入門"
 author: "藤原翔"
-date: "2021-10-03"
+date: "2023-05-09"
 site: bookdown::bookdown_site
 #output:
 #  bookdown::gitbook: default
