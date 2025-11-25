@@ -5,7 +5,7 @@
 
 
 
-```r
+``` r
 library(tidyverse)
 d_csv <- read_csv("data/example_7.csv")
 d_csv
@@ -25,12 +25,12 @@ d_csv
 ##  8     8     1     5     2      6      1
 ##  9     9     1     3     7      3      5
 ## 10    10     1     4     6      4      3
-## # … with 1,844 more rows
+## # ℹ 1,844 more rows
 ```
 
 
 
-```r
+``` r
 library(car)
 d <- d_csv %>%
   mutate(gender = factor(c1_1, 
@@ -65,11 +65,11 @@ d
 ##  8     8 Men        0    12 JC/PTC JH/HS 
 ##  9     9 Men        2    18 JH/HS  JC/PTC
 ## 10    10 Men        1    16 JC/PTC JH/HS 
-## # … with 1,844 more rows
+## # ℹ 1,844 more rows
 ```
 
 
-```r
+``` r
 fit_1 <- lm(asp ~ grade, data = d)
 fit_1
 ```
@@ -84,7 +84,7 @@ fit_1
 ##     13.7511       0.5791
 ```
 
-```r
+``` r
 summary(fit_1)
 ```
 
@@ -105,13 +105,13 @@ summary(fit_1)
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## Residual standard error: 1.424 on 1703 degrees of freedom
-##   ( 149 個の観測値が欠損のため削除されました )
+##   (149 observations deleted due to missingness)
 ## Multiple R-squared:  0.1995,	Adjusted R-squared:  0.1991 
 ## F-statistic: 424.5 on 1 and 1703 DF,  p-value: < 2.2e-16
 ```
 
 
-```r
+``` r
 fit_2 <- lm(asp ~ grade + gender, data = d)
 fit_2
 ```
@@ -126,7 +126,7 @@ fit_2
 ##    13.79135      0.57930     -0.07985
 ```
 
-```r
+``` r
 summary(fit_2)
 ```
 
@@ -148,14 +148,14 @@ summary(fit_2)
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## Residual standard error: 1.423 on 1702 degrees of freedom
-##   ( 149 個の観測値が欠損のため削除されました )
+##   (149 observations deleted due to missingness)
 ## Multiple R-squared:  0.2002,	Adjusted R-squared:  0.1992 
 ## F-statistic:   213 on 2 and 1702 DF,  p-value: < 2.2e-16
 ```
 
 
 
-```r
+``` r
 fit_3 <- lm(asp ~ grade + gender + medu + fedu, data = d)
 fit_3
 ```
@@ -172,7 +172,7 @@ fit_3
 ##     0.52770
 ```
 
-```r
+``` r
 summary(fit_3)
 ```
 
@@ -198,14 +198,14 @@ summary(fit_3)
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## Residual standard error: 1.353 on 1641 degrees of freedom
-##   ( 206 個の観測値が欠損のため削除されました )
+##   (206 observations deleted due to missingness)
 ## Multiple R-squared:  0.2681,	Adjusted R-squared:  0.2654 
 ## F-statistic: 100.2 on 6 and 1641 DF,  p-value: < 2.2e-16
 ```
 
 
 
-```r
+``` r
 library(stargazer)
 stargazer(fit_1, fit_2, fit_3, type = "text",
           no.space = TRUE)
@@ -248,7 +248,7 @@ stargazer(fit_1, fit_2, fit_3, type = "text",
 
 
 
-```r
+``` r
 library(estimatr)
 ```
 

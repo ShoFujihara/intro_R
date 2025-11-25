@@ -3,17 +3,25 @@
 
 
 
-```r
+``` r
 library(tidyverse)
 ```
 
 ```
+## Warning: package 'ggplot2' was built under R version 4.5.2
+```
+
+```
+## Warning: package 'readr' was built under R version 4.5.2
+```
+
+```
 ## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-## ✔ dplyr     1.1.2     ✔ readr     2.1.4
-## ✔ forcats   1.0.0     ✔ stringr   1.5.0
-## ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-## ✔ purrr     1.0.1     
+## ✔ dplyr     1.1.4     ✔ readr     2.1.6
+## ✔ forcats   1.0.1     ✔ stringr   1.6.0
+## ✔ ggplot2   4.0.1     ✔ tibble    3.3.0
+## ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+## ✔ purrr     1.2.0     
 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
@@ -21,7 +29,7 @@ library(tidyverse)
 ```
 
 
-```r
+``` r
 d <- read_csv("data/example_1.csv")
 ```
 
@@ -35,7 +43,7 @@ d <- read_csv("data/example_1.csv")
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
-```r
+``` r
 d
 ```
 
@@ -63,24 +71,25 @@ d
 ### 1変数の場合
 
 
-```r
+``` r
 ggplot(d, mapping = aes(x = c17_1hensa))
 ```
 
 <img src="06-ggplot_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
 
-```r
+``` r
 ggplot(d, mapping = aes(x = c17_1hensa)) + 
   geom_histogram()
 ```
 
 ```
-## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value `binwidth`.
 ```
 
 ```
-## Warning: Removed 251 rows containing non-finite values (`stat_bin()`).
+## Warning: Removed 251 rows containing non-finite outside the scale range
+## (`stat_bin()`).
 ```
 
 <img src="06-ggplot_files/figure-html/unnamed-chunk-4-1.png" width="672" />

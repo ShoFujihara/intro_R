@@ -4,7 +4,7 @@
 
 
 
-```r
+``` r
 library(dagitty)
 library(lavaan)
 ```
@@ -15,7 +15,7 @@ library(lavaan)
 
 
 
-```r
+``` r
 g <- dagitty('dag{
   x [pos="0,1"]
   y [pos="1,1"]
@@ -33,7 +33,7 @@ plot(g)
 ## 実際のデータ生成過程
 
 
-```r
+``` r
 g <- dagitty('dag{
   x [pos="0,2"]
   y [pos="2,2"]
@@ -52,7 +52,7 @@ plot(g)
 
 
 
-```r
+``` r
 g <- dagitty('dag{
   x [pos="0,2"]
   y [pos="2,2"]
@@ -79,7 +79,7 @@ plot(g)
 
 
 
-```r
+``` r
 g <- dagitty('dag{
   x
   y

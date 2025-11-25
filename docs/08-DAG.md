@@ -1,19 +1,19 @@
 # 有向非巡回グラフ（DAG） {#DAG}
 
 
-```r
+``` r
 library(dagitty)
 library(lavaan)
 ```
 
 ```
-## This is lavaan 0.6-15
+## This is lavaan 0.6-20
 ## lavaan is FREE software! Please report any bugs.
 ```
 
 
 
-```r
+``` r
 g <- dagitty('dag{
   x [pos="0,1"]
   y [pos="1,1"]
@@ -27,7 +27,7 @@ plot(g)
 ## Confounder
 
 
-```r
+``` r
 g <- dagitty('dag{
   x [pos="0,1"]
   y [pos="1,1"]
@@ -44,7 +44,7 @@ plot(g)
 
 
 
-```r
+``` r
 g <- dagitty('dag{
   x [pos="0,1"]
   y [pos="1,1"]
@@ -61,7 +61,7 @@ plot(g)
 ## Collidar
 
 
-```r
+``` r
 g <- dagitty('dag{
   x [pos="0,1"]
   y [pos="1,1"]
